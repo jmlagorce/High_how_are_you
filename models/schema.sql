@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS exampledb;
 CREATE DATABASE exampledb;
 
-DROP TABLE IF EXISTS exampledb;
+DROP TABLE IF EXISTS testdb;
 CREATE DATABASE testdb;
