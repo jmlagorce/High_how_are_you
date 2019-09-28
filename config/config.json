@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "exampledb",
+    "database": "weed_db",
     "host": "localhost",
     "dialect": "mysql"
   },
