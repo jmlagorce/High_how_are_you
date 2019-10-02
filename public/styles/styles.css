@@ -11,7 +11,6 @@
   top: 40%;
 }
 
-#logo {
-  width: 20px;
-  length: 20px;
+img.logo {
+  width: 20%;
 }
