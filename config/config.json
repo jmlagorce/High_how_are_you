@@ -1,10 +1,11 @@
 {
   "development": {
     "username": "root",
+    "password": "CrazyR!chasians12",
 
    
 
-    "password": "CrazyR!chasians12",
+   
 
     "database": "exampledb",
     "host": "localhost",
