@@ -1,13 +1,13 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  // Product API Routes
   // Get all products
   app.get("/api/products", function(req, res) {
     db.Product.findAll({}).then(function(results) {
       res.json(results);
     });
   });
-  // Get Specific Product
   // By Name
   app.get('/api/products/name/:name', function(req, res) {
     db.Product.findOne({where: {name: req.params.name} }).then(function(results) {
@@ -26,17 +26,39 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-  // Create a new example
+  // Create a new product
   app.post("/api/products", function(req, res) {
-    db.Product.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+    db.Product.create(req.body).then(function(results) {
+      res.json(results);
+    });
+  });
+  // Delete a product by id
+  app.delete("/api/products/:id", function(req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(results) {
+      res.json(results);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // User API routes
+
+  //Pull user by name
+  app.get('/api/users/:username', function(req, res) {
+    db.User.findOne({ where: { userName: req.params.username }}).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  //Pull all users for user name compairison
+  app.get('/api/users', function(req, res) {
+    db.User.findAll({attributes: ['userName']}).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  // Add New User
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body).then(function(results) {
+      res.json(results);
     });
   });
 };
