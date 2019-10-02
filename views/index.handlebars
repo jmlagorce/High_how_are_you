@@ -1,34 +1,62 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Welcome to High, How Are You?</h2>
-        <h3>Where all of your cannabis needs are met.</h3>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
+<div>
+  <nav>
+    <div class="nav-wrapper grey darken-3">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">
+          <img src='Images/Leaf & Go.png' alt='logo'>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/product">About</a></li>
+          <li><a href="/product">Shop</a></li>
+          <li><a href="/search"><i class="material-icons">search</i></a></li>
+          <li><a href="/checkout"><i class="material-icons">shopping_cart</i></a></li>
+
         </ul>
       </div>
     </div>
-  </div>
+  </nav>
+
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<div class="parallax-container amber lighten-5">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center  light-green-text text-lighten-2">Welcome!</h1>
+      <div class="row center">
+        <h5 class="header col s12 light grey-text text-darken-2">Need some inspiration? See our Featured Products</h5>
+      </div>
+      <div class="row center">
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light  light-green lighten-2">Featured
+        </a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax"><img src="Images/Plant1.jpg" alt="Plant 1"></div>
+</div>
+<div class='container grey-text text-darken-2'>
+  <h4>About Us</h4>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex fuga veniam neque quae delectus velit nihil quisquam
+  maiores saepe praesentium? Fugiat recusandae itaque repudiandae, odit non molestias eveniet iusto cumque consequuntur
+  sint dolor cupiditate error dolore aperiam eum corrupti voluptas hic autem mollitia quibusdam vel, quia quasi maxime
+  dolores. Consequatur blanditiis possimus ab aut sapiente unde quis? Quidem non architecto aliquid nobis iste mollitia
+  excepturi asperiores fugiat? Error, incidunt hic aspernatur magni facilis architecto autem iusto commodi perspiciatis
+  veritatis quod eius pariatur dolor, nisi culpa! Temporibus libero minus quisquam, ipsam aliquam, corporis, voluptas
+  illum quidem error eligendi nulla delectus placeat?
+</div>
+<div class="parallax-container amber lighten-5">
+  <div class="parallax"><img src="#"></div>
+</div>
+<div class='container grey-text text-darken-2'>
+  <h4>Contact Us</h4>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem vel ut est incidunt, omnis modi labore fugit, id
+  officia ratione et cupiditate. Hic dignissimos repudiandae quae mollitia omnis possimus porro sequi, in fugit quasi
+  accusamus, facilis sunt velit! Nesciunt non architecto minima illo asperiores voluptatum quidem officia harum aperiam
+  minus?
+</div>
+<div class="parallax-container amber lighten-5">
+  <div class="parallax"><img src="#"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
