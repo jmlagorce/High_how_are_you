@@ -45,7 +45,7 @@
   
   border: red 2px solid;
   float: left;
-  margin: 10px 5px 10px 10px;
+  margin: 20px 5px 20px 10px;
   background-color: lightgray;
   box-shadow: 5px 10px 18px red;
 
@@ -70,7 +70,7 @@
  width: 75%;
  height: auto;
  border: green 2px solid;
- margin: 10px 10px 10px 10px;
+ margin: 20px 10px 20px 10px;
  position: absolute;
  top: 40%;
  left: 21.75%;
