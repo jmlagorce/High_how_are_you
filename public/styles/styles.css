@@ -2,11 +2,94 @@
   line-height: 2.5;
 }
 
+/* admin CSS */
 .login {
   width: 500px;
   border: 2px solid black;
   padding: 15px;
   position: absolute;
   right: 32%;
-  top: 40%;
+  top: 30%;
 }
+
+#login-title {
+  text-align: center;
+}
+
+.admin-tables{
+  border: black 2px solid;
+  height: 1000px;
+  width: 100%;
+}
+
+.table-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.add-stock {
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  border: blue 2px solid;
+  float: left;
+  margin: 10px 10px 20px 10px;
+  background-color: lightgray;
+  box-shadow: 5px 10px 18px blue;
+
+}
+
+.low-stock {
+  width: 75%;
+  height: Auto;
+  
+  border: red 2px solid;
+  float: left;
+  margin: 10px 5px 10px 10px;
+  background-color: lightgray;
+  box-shadow: 5px 10px 18px red;
+
+}
+
+.add-product {
+  clear: both;
+  width: 20%;
+  height: auto;
+  padding: 20px;
+  
+  border: blue 2px solid;
+  
+  margin: 20px 10px 10px 10px;
+  background-color: lightgray;
+  box-shadow: 5px 10px 18px blue;
+
+}
+
+
+.inventory {
+ width: 75%;
+ height: auto;
+ border: green 2px solid;
+ margin: 10px 10px 10px 10px;
+ position: absolute;
+ top: 40%;
+ left: 21.75%;
+ background-color: lightgray;
+ box-shadow: 5px 10px 18px green;
+
+}
+
+/* .add-quantity-btn { */
+  /* position: absolute;
+  top: 47%;
+  left: 15%;
+  background-color: red; */
+/* } */
+
+/* .add-product-btn { */
+  /* position: absolute;
+  left: 15%;
+  top: 113%;
+  background-color: red;
+} */
+

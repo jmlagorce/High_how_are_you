@@ -93,7 +93,13 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
+//admin login submit button
+$(".admin-tables").hide();
+$(".submit-admin").on("click", function(){
+  $(".login").hide();
+  $(".admin-tables").show();
 
+})
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
