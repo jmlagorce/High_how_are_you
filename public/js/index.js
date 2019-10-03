@@ -93,6 +93,32 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
+//admin login submit button
+
+
+$(".admin-tables").hide();
+$(".login").show();
+
+function check(form)
+{
+
+ if(form.userid.value == "admin" && form.pswrd.value == "admin")
+  {
+    alert("Login Successful!")
+    $(".login").hide();
+    $(".admin-tables").show();
+  }
+ else
+ {
+   alert("Error Password or Username")/*displays error message*/
+  }
+}
+$(".submit-admin").on("click", function(){
+  
+check();
+
+})
+
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
