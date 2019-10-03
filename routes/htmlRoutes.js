@@ -21,9 +21,6 @@ module.exports = function(app) {
   });
   // Loads admin page
   app.get("/admin", function(req, res) {
-    var all;
-    var low;
-
     db.Product.findAll({}).then(function(results) {
       res.render("admin", { strain: results });
     })
