@@ -6,11 +6,15 @@
   width: 500px;
   border: 2px solid black;
   padding: 15px;
-  position: absolute;
-  right: 32%;
-  top: 40%;
+  position: relative;
+  left: 30%;
+  top: 150px;
 }
 
 img.logo {
   width: 20%;
+}
+
+button.admin-btn.btn.btn-primary {
+  background-color: #aed581;
 }
