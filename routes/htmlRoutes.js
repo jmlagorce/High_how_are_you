@@ -25,4 +25,7 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+  app.get("/blog", function(req, res) {
+    res.render("example");
+  });
 };
