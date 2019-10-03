@@ -1,18 +1,147 @@
 <div class="login">
-    <h4>Login</h4>
+  <h4 id="login-title">LOGIN</h4>
+  <form name="login">
+    Username<input type="text" name="userid" />
+    Password<input type="password" name="pswrd" />
+    <input type="button" onclick="check(this.form)" value="Login" class="btn btn-primary add-product-btn" />
+    <input type="reset" value="Cancel" class="btn btn-primary add-product-btn" />
+  </form>
+
+
+
+</div>
+
+
+{{!-- On submission of admin info, div with tables will show --}}
+<div class="admin-tables">
+
+  {{!-- Add stock table --}}
+  <div class="add-stock">
+    <h3 class="table-name">Add Stock</h3>
     <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
-    <small id="emailHelp" class="form-text text-muted"></small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
+      <br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Product ID</label>
+        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Quantity #</label>
+        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary add-quantity-btn">Add</button>
     </form>
 
+  </div>
+  {{!-- Add stock table ends --}}
+
+  {{!-- Shows product under 28(Grams)/ low stock table --}}
+  <div class="low-stock">
+    <h3 class="table-name">Low Inventory</h3>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">ID #</th>
+          <th scope="col">Name</th>
+          <th scope="col">Stock</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each low-strain}}
+        <tr>
+          <td>{{this.id}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.stock}}</td>
+
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+  {{!-- End of low stock table --}}
+
+  {{!-- Add product table --}}
+  <div class="add-product">
+
+    <h3 class="table-name">Add Product</h3>
+    <form>
+      <br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <br>
+        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Race</label>
+        <br>
+        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Mood</label>
+        <br>
+        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Stock</label>
+        <br>
+        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Price</label>
+        <br>
+        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary add-product-btn">Add</button>
+    </form>
+
+  </div>
+  {{!-- End of Add product table --}}
+
+  {{!-- Inventory table --}}
+  <div class="inventory">
+    <h3 class="table-name">Inventory</h3>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">ID #</th>
+          <th scope="col">Name</th>
+          <th scope="col">Race</th>
+          <th scope="col">Mood</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each strain}}
+        <tr>
+          <td>{{this.id}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.race}}</td>
+          <td>{{this.mood}}</td>
+          <td>{{this.stock}}</td>
+          <td>{{this.price}}</td>
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+
+  {{!-- End of inventory table --}}
+
+
+
+
+</div>
 
 </div>

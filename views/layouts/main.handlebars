@@ -4,29 +4,36 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="./styles/styles.css">
+<<<<<<< HEAD
   <script src="jquery-3.4.1.min.js"></script>
+=======
+>>>>>>> ff96f56f942afba1895b1939ec9685ad3306bea9
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <title>Home Page</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </head>
 
 <body>
   <div>
     <nav>
-      <div class="nav-wrapper grey darken-3">
+      <div class="navbar nav-wrapper grey darken-3">
         <div class="nav-wrapper container">
           <a href="/" class="brand-logo">
-            <img src='Images/Leaf & Go.png' alt='logo'>
+            <img class='logo' src='./Images/filmfest.png' alt='logo'>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/product">About</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/product">Shop</a></li>
-            <li><a href="/search"><i class="material-icons">search</i></a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/admin">Admin</a></li>
+            {{!-- <li><a href="/search"><i class="material-icons">search</i></a></li> --}}
             <li><a href="/checkout"><i class="material-icons">shopping_cart</i></a></li>
 
           </ul>
@@ -36,9 +43,19 @@
 
   </div>
   {{{body}}}
+  <footer>
+    <div id='admin'>
+      <a href="/admin">Admin</a>
+    </div>
+    <div id='copyright'>
+      Copyright &copy
+    </div>
 
-
+  </footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
