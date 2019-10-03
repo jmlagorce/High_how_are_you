@@ -71,13 +71,10 @@ module.exports = function(app) {
           [Op.lte]: 5
         }
       }
-    })
+    });
     Promise.all([all_inventory, low_inventory]).then(responses => {
       res.render("admin", { strain: responses[0], lowstrain: responses[1]});
-    })
-    // db.Product.findAll({}).then(function(results) {
-    //   res.render("admin", { strain: results });
-    // });
+    });
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
