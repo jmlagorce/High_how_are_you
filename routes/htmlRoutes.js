@@ -9,11 +9,51 @@ module.exports = function(app) {
   });
   // Loads search page
   app.get("/product", function(req, res) {
-    res.render("search");
+    db.Product.findAll({}).then(function(results) {
+      res.render("search");
+    });
   });
+  // Filters search page by variable
+  // Filter by mood
+  app.get("/product/mood/:mood", function(req, res) {
+    db.Product.findAll({
+      where: {
+        mood: req.params.mood
+      }
+    }).then(function(results) {
+      res.render("search");
+    });
+  });
+  // Filter by type
+  app.get("/product/type/:type", function(req, res) {
+    db.Product.findAll({
+      where: {
+        race: req.params.type
+      }
+    }).then(function(results) {
+      res.render("search");
+    });
+  });
+  // Filter by name
+  app.get("/product/name/:name", function(req, res) {
+    db.Product.findAll({
+      where: {
+        name: req.params.name
+      }
+    }).then(function(results) {
+      res.render("search");
+    });
+  });
+
   // Example Product Route. Will expand once tables have been created with data.
   app.get("/product/:id", function(req, res) {
-    res.render("product");
+    db.Product.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(results) {
+      res.render("product")
+    });
   });
   // Loads checkout page
   app.get("/checkout", function(req, res) {
