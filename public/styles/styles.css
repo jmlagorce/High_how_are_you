@@ -5,11 +5,12 @@
 /* admin CSS */
 .login {
   width: 500px;
-  border: 2px solid black;
+  border: 2px solid gray;
   padding: 15px;
   position: absolute;
   right: 32%;
   top: 30%;
+  box-shadow: 5px 10px 18px gray;
 }
 
 #login-title {
@@ -79,17 +80,30 @@
 
 }
 
-/* .add-quantity-btn { */
-  /* position: absolute;
-  top: 47%;
-  left: 15%;
-  background-color: red; */
-/* } */
+/* Checkout CSS */
+.checkout {
+  border: black 2px solid;
+  height: 500px;
+  width: 80%;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  padding: 15px;
+}
 
-/* .add-product-btn { */
-  /* position: absolute;
-  left: 15%;
-  top: 113%;
-  background-color: red;
-} */
+.total {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-color: gray;
+  color: white;
+  width: 120px;
+  height: auto;
+  padding: 5px;
+}
 
+.checkout-btn {
+  position: absolute;
+  right: 10px;
+  bottom: -50px;
+}

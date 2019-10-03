@@ -118,6 +118,8 @@ $(".submit-admin").on("click", function(){
 check();
 
 })
+
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
