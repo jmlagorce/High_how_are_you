@@ -17,13 +17,15 @@ module.exports = function(app) {
   });
   // Loads checkout page
   app.get("/checkout", function(req, res) {
-    res.render("checkout");
+    db.Purchase.findAll({}).then(function(results) {
+      res.render("checkout", {purchased: results});
+    });
   });
   // Loads admin page
   app.get("/admin", function(req, res) {
     db.Product.findAll({}).then(function(results) {
       res.render("admin", { strain: results });
-    })
+    });
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
