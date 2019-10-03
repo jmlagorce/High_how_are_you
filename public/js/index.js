@@ -119,6 +119,31 @@ check();
 
 })
 
+jQuery(document).ready(function($){
+  $('.content').hide();
+  $('.box-right').show();
+  if (sessionStorage.getItem('advertOnce') !== 'true') {
+    $('.content').hide();
+    
+  }else{
+    
+    $('.box-right').show();
+  }
+   
+  $('#refresh-page').on('click',function(){
+  $('.box-right').hide();
+  $('.content').show();
+  sessionStorage.setItem('advertOnce','true');
+  
+  });
+    
+  $('#reset-session').on('click',function(){
+  $('.box-right').show();
+  sessionStorage.setItem('advertOnce','');
+  alert("You are underage and not able to access this website.")
+  });
+   
+  });
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
