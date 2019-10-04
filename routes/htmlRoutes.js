@@ -68,7 +68,7 @@ module.exports = function(app) {
     const low_inventory = db.Product.findAll({
       where: {
         stock: {
-          [Op.lte]: 5
+          [Op.lte]: 28
         }
       }
     });
