@@ -1,4 +1,16 @@
+<div class="cart">
+<h4>Shopping Cart</h4>
 
+<hr>
+{{#each order}}
+  <ul>
+    <li>{{this.name}}</li>
+    <li>{{this.amount}}</li>
+    <li>{{this.price}}</li>
+  </ul>
+{{/each}}
+
+</div>
  {{#each strain_card}}
 <div class="card strain-card" style="width: 18rem;">
   <img src="https://www.laweekly.com/wp-content/uploads/2019/05/thc_design_s_cali-dad_og_is_sativa-dominant_and_tested_at_22-759x500.jpg" class="card-img-top product-img" alt="...">
@@ -13,7 +25,43 @@
            <li> {{description}} </li>
 
         </ul>
-        
+        <br>
+        <div class="form-group">
+    <label for="exampleFormControlSelect1">Select Quantity</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+        <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+        <option>11</option>
+      <option>12</option>
+      <option>13</option>
+      <option>14</option>
+      <option>15</option>
+        <option>16</option>
+      <option>17</option>
+      <option>18</option>
+      <option>19</option>
+      <option>20</option>
+        <option>21</option>
+      <option>22</option>
+      <option>23</option>
+      <option>24</option>
+      <option>25</option>
+        <option>26</option>
+      <option>27</option>
+      <option>28</option>
+     
+    </select>
+  </div>
+  <br>
+        <button type="submit" class="btn btn-primary add-product-btn submit">Add to Cart</button>
     
   </div>
 </div>
