@@ -34,11 +34,6 @@ module.exports = function(app) {
   });
   // Update product inventory
   app.put("/api/products/update/:id", function(req, res) {
-    // console.log("I'm here")
-    // db.Product.update(req.params.id, function(result) {
-    //   console.log(result);
-    //   res.sendStatus(200);
-    // })
     db.Product.update({stock: req.body.stock}, {where: {id: req.params.id} }).then(function(results) {
       res.json(results);
     });

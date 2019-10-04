@@ -116,5 +116,4 @@ $(".update-submit").on("click", function(event) {
 
 $(".checkout-btn").on ("click", function() {
   $(".checkout").hide();
-})
 });
