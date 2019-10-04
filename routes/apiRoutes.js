@@ -33,7 +33,7 @@ module.exports = function(app) {
     });
   });
   // Delete a product by id
-  app.delete("/api/products/:id", function(req, res) {
+  app.delete("/api/products/remove/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(results) {
       res.json(results);
     });
