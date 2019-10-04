@@ -114,7 +114,13 @@ $(".update-submit").on("click", function(event) {
   }
 });
 
+
+// checkout page
 $(".checkout-btn").on ("click", function() {
-  $(".checkout").hide();
+  $(".checkout").hide()
+  alert('Thank You Come Again');
+  $(".thanks").show()
+  $(location).attr('href', '/')
+
 })
-});
+ master
