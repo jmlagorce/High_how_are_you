@@ -143,6 +143,19 @@ $(".update-submit").on("click", function(event) {
   }
 });
 
+<<<<<<< HEAD
 $(".checkout-btn").on("click", function() {
   $(".checkout").hide();
 });
+=======
+
+// checkout page
+$(".checkout-btn").on ("click", function() {
+  $(".checkout").hide()
+  alert('Thank You Come Again');
+  $(".thanks").show()
+  $(location).attr('href', '/')
+
+})
+ master
+>>>>>>> b909aa44be2de2d8121e8c7cd78c635379e0e79d
