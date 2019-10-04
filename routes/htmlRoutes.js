@@ -10,7 +10,7 @@ module.exports = function(app) {
   // Loads search page
   app.get("/product", function(req, res) {
     db.Product.findAll({}).then(function(results) {
-      res.render("search");
+      res.render("search", {strain_card: results});
     });
   });
   // Filters search page by variable
