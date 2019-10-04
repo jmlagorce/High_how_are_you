@@ -42,21 +42,18 @@ jQuery(document).ready(function($) {
     location.replace("https://www.disney.com");
   });
 });
-
-// Add event listeners to the submit and delete buttons
-
-
+// Remove Product
 $(".remove").on("click", function(event) {
   event.preventDefault();
   var removedItem = this.value;
   $.ajax("/api/products/remove/" + removedItem, {
-    type: "DELETE"
+    method: "DELETE"
   }).then(function() {
     location.reload(true);
-  });
-});
-
-$(".submit").on("click", function(event) {
+  })
+})
+// Add new product
+$(".new-submit").on("click", function(event) {
   event.preventDefault();
   if ($("#new_name").val().length === 0) {
     alert("Please enter all of the information before submitting.");
@@ -95,13 +92,29 @@ $(".submit").on("click", function(event) {
       // location.reload(true);
     });
   }
-
-  
-})
+});
+// Update Product
+$(".update-submit").on("click", function(event) {
+  event.preventDefault();
+  if($("#product_id").val().length === 0) {
+    alert("Please enter all update information before submitting");
+  }else {
+    var updateId = $("#product_id").val().trim();
+    var updateStrain = {
+      stock: $("#amount").val().trim()
+    };
+    console.log(updateId)
+    console.log(updateStrain)
+    $.ajax("/api/products/update/" + updateId, {
+      type: "PUT",
+      data: updateStrain
+    }).then(function() {
+      console.log("Updated Stain");
+    });
+  }
+});
 
 $(".checkout-btn").on ("click", function() {
   $(".checkout").hide();
 })
-=======
 });
-
