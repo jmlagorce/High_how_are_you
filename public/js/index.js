@@ -102,6 +102,7 @@ function check(form) {
   if (form.userid.value == "admin" && form.pswrd.value == "admin") {
     alert("Login Successful!");
     $(".login").hide();
+    $(".container-admin").hide();
     $(".admin-tables").show();
   } else {
     alert("Error Password or Username"); /*displays error message*/
