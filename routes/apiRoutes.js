@@ -32,9 +32,21 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+  // Update product inventory
+  app.put("/api/products/update/:id", function(req, res) {
+    // console.log("I'm here")
+    // db.Product.update(req.params.id, function(result) {
+    //   console.log(result);
+    //   res.sendStatus(200);
+    // })
+    db.Product.update({stock: req.body.stock}, {where: {id: req.params.id} }).then(function(results) {
+      res.json(results);
+    });
+  });
   // Delete a product by id
   app.delete("/api/products/remove/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(results) {
+    console.log(req.params);
+    db.Product.destroy({ where: { id: req.params.id } }).then(function(results) {
       res.json(results);
     });
   });
