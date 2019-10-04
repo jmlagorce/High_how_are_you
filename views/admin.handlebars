@@ -24,16 +24,16 @@
     <form>
       <br>
       <div class="form-group">
-        <label for="exampleInputEmail1">Product ID</label>
-        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <label for="product_id">Product ID</label>
+        <input type="input" class="form-control" id="product_id" placeholder="">
       </div>
       <br>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Quantity #</label>
-        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <label for="amount">Quantity #</label>
+        <input type="input" class="form-control" id="amount" placeholder="">
       </div>
       <br>
-      <button type="button" class="btn btn-primary add-quantity-btn">Add</button>
+      <button type="button" class="btn btn-primary add-quantity-btn update-submit">Add</button>
     </form>
 
   </div>
@@ -103,7 +103,7 @@
         <input type="input" class="form-control input" id="new_price" placeholder="">
       </div>
       <br>
-      <button type="submit" class="btn btn-primary add-product-btn submit">Add</button>
+      <button type="submit" class="btn btn-primary add-product-btn new-submit">Add</button>
     </form>
 
   </div>
@@ -117,7 +117,7 @@
         <tr>
           <th scope="col">ID #</th>
           <th scope="col">Name</th>
-          <th scope="col">Race</th>
+          <th scope="col">Type</th>
           <th scope="col">Mood</th>
           <th scope="col">Stock</th>
           <th scope="col">Price</th>
@@ -131,8 +131,8 @@
           <td>{{this.name}}</td>
           <td>{{this.type}}</td>
           <td>{{this.mood}}</td>
-          <td>{{this.stock}}</td>
-          <td>{{this.price}}</td>
+          <td>{{this.stock}} Grams</td>
+          <td>${{this.price}}</td>
           <td><button type="button" class="btn btn-primary remove" value={{this.id}}>Remove</button></td>
 
         </tr>
