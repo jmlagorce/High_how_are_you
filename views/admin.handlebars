@@ -1,20 +1,23 @@
+<div class='container-admin'>
+  <img id='admin-bg' src='./images/admin-bg.jpg'>
+</div>
 <div class="login">
-  <h4 id="login-title">LOGIN</h4>
+  <h4 id="login-title">Welcome!</h4>
+  <h6 id='login-title'>Login to access your account</h6>
   <form name="login">
-    Username<input type="text" name="userid" />
-    Password<input type="password" name="pswrd" />
-    <input type="button" onclick="check(this.form)" value="Login" class="btn btn-primary add-product-btn" />
-    <input type="reset" value="Cancel" class="btn btn-primary add-product-btn" />
+    Username<input class='input-field' type="text" name="userid" />
+    Password<input class='input-field' type="password" name="pswrd" />
+    <input type="button" onclick="check(this.form)" value="Login" class="btn btn-primary add-product-btn login-btn" />
+    <input type="reset" value="Cancel" class="btn btn-primary add-product-btn login-btn" />
   </form>
-
-
 
 </div>
 
 
 {{!-- On submission of admin info, div with tables will show --}}
-<div class="admin-tables">
 
+
+<div class="admin-tables">
   {{!-- Add stock table --}}
   <div class="add-stock">
     <h3 class="table-name">Add Stock</h3>
@@ -77,7 +80,7 @@
       </div>
       <br>
       <div class="form-group">
-        <label for="new_race">Race</label>
+        <label for="new_race">Type</label>
         <br>
         <input type="input" class="form-control input" id="new_race" placeholder="">
       </div>
@@ -143,7 +146,5 @@
 
 
 
-
-</div>
 
 </div>
