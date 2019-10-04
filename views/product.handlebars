@@ -1,5 +1,18 @@
 <h1>This is the individual product page</h1>
 
+<ul>
+  {{#each product}}
+    <li>
+      <p>
+        {{this.id}}. {{this.product}}
+
+        <button data-productid="{{this.id}}" class="product"></button>
+      </p>
+    </li>
+  {{/each}}
+</ul>
+
+
 {{!-- pagination --}}
 {{!-- <ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
