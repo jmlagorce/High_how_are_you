@@ -5,12 +5,15 @@ $(".login").show();
 
 function check(form) {
   if (form.userid.value == "admin" && form.pswrd.value == "admin") {
-    alert("Login Successful!");
+    M.toast({ html: "Success!", displayLength: "1000" });
     $(".login").hide();
     $(".container-admin").hide();
     $(".admin-tables").show();
   } else {
-    alert("Error Password or Username"); /*displays error message*/
+    M.toast({
+      html: "Invalid Username or Password. Try again!",
+      displayLength: "5000"
+    }); /*displays error message*/
   }
 }
 $(".submit-admin").on("click", function() {
@@ -51,20 +54,30 @@ $(".remove").on("click", function(event) {
     type: "DELETE"
   }).then(function() {
     location.reload(true);
-  })
-})
+  });
+});
 
 $(".submit").on("click", function(event) {
   event.preventDefault();
-  if($("#new_name").val().length === 0) {
-    alert("Please enter all of the information before submitting.")
-  }else {
+  if ($("#new_name").val().length === 0) {
+    alert("Please enter all of the information before submitting.");
+  } else {
     var newStrain = {
-      name: $("#new_name").val().trim(),
-      race: $("#new_race").val().trim(),
-      mood: $("#new_mood").val().trim(),
-      stock: $("#new_stock").val().trim(),
-      price: $("#new_price").val().trim(),
+      name: $("#new_name")
+        .val()
+        .trim(),
+      race: $("#new_race")
+        .val()
+        .trim(),
+      mood: $("#new_mood")
+        .val()
+        .trim(),
+      stock: $("#new_stock")
+        .val()
+        .trim(),
+      price: $("#new_price")
+        .val()
+        .trim()
     };
 
     $.ajax("/api/products", {
@@ -73,7 +86,6 @@ $(".submit").on("click", function(event) {
     }).then(function() {
       console.log("added new strain");
       // location.reload(true);
-    })
+    });
   }
-  
-})
+});
