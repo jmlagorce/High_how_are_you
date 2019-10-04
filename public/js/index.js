@@ -3,12 +3,28 @@
 $(".admin-tables").hide();
 $(".login").show();
 
+if (
+  sessionStorage.getItem("userName") === null &&
+  sessionStorage.getItem("password") === null
+) {
+  $(".admin-tables").hide();
+  $(".login").show();
+} else {
+  $(".login").hide();
+  $(".container-admin").hide();
+  $(".admin-tables").show();
+}
+
 function check(form) {
-  if (form.userid.value == "admin" && form.pswrd.value == "admin") {
+  var userName = form.userid.value;
+  var password = form.pswrd.value;
+  if (userName == "admin" && password == "admin") {
     M.toast({ html: "Success!", displayLength: "1000" });
     $(".login").hide();
     $(".container-admin").hide();
     $(".admin-tables").show();
+    sessionStorage.setItem("username", userName);
+    sessionStorage.setItem("password", password);
   } else {
     M.toast({
       html: "Invalid Username or Password. Try again!",
@@ -30,6 +46,7 @@ jQuery(document).ready(function($) {
   }
 
   $("#refresh-page").on("click", function() {
+    $(".container-index").hide();
     $(".box-right").hide();
     $(".content").show();
     sessionStorage.setItem("advertOnce", "true");
@@ -50,8 +67,8 @@ $(".remove").on("click", function(event) {
     method: "DELETE"
   }).then(function() {
     location.reload(true);
-  })
-})
+  });
+});
 // Add new product
 $(".new-submit").on("click", function(event) {
   event.preventDefault();
@@ -59,12 +76,21 @@ $(".new-submit").on("click", function(event) {
     alert("Please enter all of the information before submitting.");
   } else {
     var newStrain = {
-
-      name: $("#new_name").val().trim(),
-      type: $("#new_race").val().trim(),
-      mood: $("#new_mood").val().trim(),
-      stock: $("#new_stock").val().trim(),
-      price: $("#new_price").val().trim(),
+      name: $("#new_name")
+        .val()
+        .trim(),
+      type: $("#new_race")
+        .val()
+        .trim(),
+      mood: $("#new_mood")
+        .val()
+        .trim(),
+      stock: $("#new_stock")
+        .val()
+        .trim(),
+      price: $("#new_price")
+        .val()
+        .trim(),
 
       name: $("#new_name")
         .val()
@@ -81,7 +107,6 @@ $(".new-submit").on("click", function(event) {
       price: $("#new_price")
         .val()
         .trim()
-
     };
 
     $.ajax("/api/products", {
@@ -96,15 +121,19 @@ $(".new-submit").on("click", function(event) {
 // Update Product
 $(".update-submit").on("click", function(event) {
   event.preventDefault();
-  if($("#product_id").val().length === 0) {
+  if ($("#product_id").val().length === 0) {
     alert("Please enter all update information before submitting");
-  }else {
-    var updateId = $("#product_id").val().trim();
+  } else {
+    var updateId = $("#product_id")
+      .val()
+      .trim();
     var updateStrain = {
-      stock: $("#amount").val().trim()
+      stock: $("#amount")
+        .val()
+        .trim()
     };
-    console.log(updateId)
-    console.log(updateStrain)
+    console.log(updateId);
+    console.log(updateStrain);
     $.ajax("/api/products/update/" + updateId, {
       type: "PUT",
       data: updateStrain
@@ -114,13 +143,11 @@ $(".update-submit").on("click", function(event) {
   }
 });
 
-
 // checkout page
-$(".checkout-btn").on ("click", function() {
-  $(".checkout").hide()
-  alert('Thank You Come Again');
-  $(".thanks").show()
-  $(location).attr('href', '/')
-
-})
- master
+$(".checkout-btn").on("click", function() {
+  $(".checkout").hide();
+  alert("Thank You Come Again");
+  $(".thanks").show();
+  $(location).attr("href", "/");
+});
+master;
