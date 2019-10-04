@@ -133,3 +133,15 @@ footer {
   right: 25%;
   box-shadow: 5px 10px 18px gray;
 }
+
+div.card.strain-card {
+  float: left;
+  box-shadow: 5px 10px 18px gray;
+  padding: 20px;
+  margin: 20px 20px 20px 20px;
+}
+
+.product-img {
+  height: 200px;
+  width: 225px;
+}

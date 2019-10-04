@@ -40,8 +40,7 @@ jQuery(document).ready(function($) {
 });
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+
 
 $(".remove").on("click", function(event) {
   event.preventDefault();
@@ -60,7 +59,7 @@ $(".submit").on("click", function(event) {
   }else {
     var newStrain = {
       name: $("#new_name").val().trim(),
-      race: $("#new_race").val().trim(),
+      type: $("#new_race").val().trim(),
       mood: $("#new_mood").val().trim(),
       stock: $("#new_stock").val().trim(),
       price: $("#new_price").val().trim(),
@@ -75,4 +74,8 @@ $(".submit").on("click", function(event) {
     })
   }
   
+})
+
+$(".checkout-btn").on ("click", function() {
+  $(".checkout").hide();
 })
