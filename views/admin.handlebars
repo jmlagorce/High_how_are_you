@@ -74,36 +74,36 @@
     <form>
       <br>
       <div class="form-group">
-        <label for="exampleInputEmail1">Name</label>
+        <label for="new_name">Name</label>
         <br>
-        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <input type="input" class="form-control input" id="new_name" placeholder="">
       </div>
       <br>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Race</label>
+        <label for="new_race">Race</label>
         <br>
-        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <input type="input" class="form-control input" id="new_race" placeholder="">
       </div>
       <br>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Mood</label>
+        <label for="new_mood">Mood</label>
         <br>
-        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <input type="input" class="form-control input" id="new_mood" placeholder="">
       </div>
       <br>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Stock</label>
+        <label for="new_stock">Stock</label>
         <br>
-        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <input type="input" class="form-control input" id="new_stock" placeholder="">
       </div>
       <br>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Price</label>
+        <label for="new_price">Price</label>
         <br>
-        <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <input type="input" class="form-control input" id="new_price" placeholder="">
       </div>
       <br>
-      <button type="button" class="btn btn-primary add-product-btn">Add</button>
+      <button type="submit" class="btn btn-primary add-product-btn submit">Add</button>
     </form>
 
   </div>
@@ -121,6 +121,7 @@
           <th scope="col">Mood</th>
           <th scope="col">Stock</th>
           <th scope="col">Price</th>
+          <th scope="col">Remove</th>
         </tr>
       </thead>
       <tbody>
@@ -132,6 +133,7 @@
           <td>{{this.mood}}</td>
           <td>{{this.stock}}</td>
           <td>{{this.price}}</td>
+          <td><button type="button" class="btn btn-primary remove" value={{this.id}}>Remove</button></td>
 
         </tr>
         {{/each}}

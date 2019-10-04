@@ -138,3 +138,37 @@ jQuery(document).ready(function($) {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+$(".remove").on("click", function(event) {
+  event.preventDefault();
+  var removedItem = this.value;
+  $.ajax("/api/products/remove/" + removedItem, {
+    type: "DELETE"
+  }).then(function() {
+    location.reload(true);
+  })
+})
+
+$(".submit").on("click", function(event) {
+  event.preventDefault();
+  if($("#new_name").val().length === 0) {
+    alert("Please enter all of the information before submitting.")
+  }else {
+    var newStrain = {
+      name: $("#new_name").val().trim(),
+      race: $("#new_race").val().trim(),
+      mood: $("#new_mood").val().trim(),
+      stock: $("#new_stock").val().trim(),
+      price: $("#new_price").val().trim(),
+    };
+
+    $.ajax("/api/products", {
+      type: "POST",
+      data: newStrain
+    }).then(function() {
+      console.log("added new strain");
+      // location.reload(true);
+    })
+  }
+  
+})
