@@ -1,14 +1,26 @@
 //admin login submit button
-
-$(".admin-tables").hide();
-$(".login").show();
+if (
+  sessionStorage.getItem("userName") === null &&
+  sessionStorage.getItem("password") === null
+) {
+  $(".admin-tables").hide();
+  $(".login").show();
+} else {
+  $(".login").hide();
+  $(".container-admin").hide();
+  $(".admin-tables").show();
+}
 
 function check(form) {
-  if (form.userid.value == "admin" && form.pswrd.value == "admin") {
+  var userName = form.userid.value;
+  var password = form.pswrd.value;
+  if (userName == "admin" && password == "admin") {
     M.toast({ html: "Success!", displayLength: "1000" });
     $(".login").hide();
     $(".container-admin").hide();
     $(".admin-tables").show();
+    sessionStorage.setItem("username", userName);
+    sessionStorage.setItem("password", password);
   } else {
     M.toast({
       html: "Invalid Username or Password. Try again!",
@@ -30,6 +42,7 @@ jQuery(document).ready(function($) {
   }
 
   $("#refresh-page").on("click", function() {
+    $(".container-index").hide();
     $(".box-right").hide();
     $(".content").show();
     sessionStorage.setItem("advertOnce", "true");
