@@ -1,1 +1,20 @@
-<h1>This is the search page.</h1>
+
+ {{#each strain_card}}
+<div class="card strain-card" style="width: 18rem;">
+  {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+ 
+  <div class="card-body">
+      
+        <ul>
+          <li>Name: {{this.name}}</td>
+           <li>Type: {{this.type}}</td>
+           <li>Mood: {{this.mood}}</td>
+           <li>Price: {{this.price}}</td>
+           <li> {{description}} </li>
+
+        </ul>
+        
+    
+  </div>
+</div>
+{{/each}}
