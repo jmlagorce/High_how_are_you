@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Product API Routes
+  // ======================== Product API Routes ========================
   // Get all products
   app.get("/api/products", function(req, res) {
     db.Product.findAll({}).then(function(results) {
@@ -38,26 +38,54 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-
-  // User API routes
-
+  // ======================== User API routes ========================
   //Pull user by name
   app.get('/api/users/:username', function(req, res) {
     db.User.findOne({ where: { userName: req.params.username }}).then(function(results) {
       res.json(results);
     });
   });
-
   //Pull all users for user name compairison
   app.get('/api/users', function(req, res) {
     db.User.findAll({attributes: ['userName']}).then(function(results) {
       res.json(results);
     });
   });
-
   // Add New User
   app.post("/api/users", function(req, res) {
     db.User.create(req.body).then(function(results) {
+      res.json(results);
+    });
+  });
+  // ======================== Checkout API Routes ========================
+  // Get all items in checkout
+  app.get("/api/checkout", function(req, res) {
+    db.Purchase.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  });
+  // Add item to checkout
+  app.post("/api/checkout", function(req, res) {
+    db.Purchase.create(req.body).then(function(results) {
+      res.json(results);
+    });
+  });
+  // Delete one item from checkout
+  app.delete('/api/checkout/:id', function(req, res) {
+    db.Purchase.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+  // Delete all items in checkout
+  app.delete("/api/checkout", function(req, res) {
+    db.Purchase.destroy({
+      where: {},
+      truncate: true
+    }).then(function(results) {
       res.json(results);
     });
   });
