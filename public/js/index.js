@@ -76,3 +76,10 @@ $(".submit").on("click", function(event) {
   }
   
 })
+
+// checkout section 
+// 
+
+$(".checkout-btn").on ("click", function() {
+  $(".checkout").hide();
+ })
