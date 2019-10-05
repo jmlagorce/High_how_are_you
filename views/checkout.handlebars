@@ -11,7 +11,6 @@
   <tbody>
      {{#each purchased}}
         <tr>
-            
             <td>{{this.name}}</td>
             <td>{{this.amount}} grams</td>
             <td>${{this.price}}</td>
@@ -24,7 +23,11 @@
 <div class="total">
     <p>Total:$ </p>
 
+
 </div>
+<label for="emailAddress">Email</label><br/>
+<input id="emailAddress" type="email" placeholder="user@example.gov"
+       list="defaultEmails" size="64" maxlength="256" multiple>
 
 <button type="button" class="btn btn-primary checkout-btn">Checkout</button>
 
