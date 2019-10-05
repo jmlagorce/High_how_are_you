@@ -145,23 +145,23 @@ $(".update-submit").on("click", function(event) {
 $('.dropdown-toggle').dropdown()
 // checkout page
 $(".checkout-btn").on("click", function() {
+  var email = $("#emailAddress").val().trim();
+  var custName;
+  var phone;
   $(".checkout").hide();
   alert("Thank You Come Again");
   $(".thanks").show();
   $.ajax("/api/checkout", {
     type: "GET"
   }).then(function(result) {
-
     for(i = 0; i < result.length; i++) {
-      var tempId = result[i].id;
-      console.log(result);
 
       delete result[i].id;
       delete result[i].createdAt;
       delete result[i].updatedAt;
-      result[i].custName = "Kurt";
-      result[i].phone = "303-555-1234";
-      result[i].email = "kurt@gmail.com";
+      result[i].custName = custName;
+      result[i].phone = phone;
+      result[i].email = email;
 
       var newOrder = {
         custName: result[i].custName,
