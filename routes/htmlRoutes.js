@@ -9,8 +9,10 @@ module.exports = function(app) {
   });
   // Loads search page
   app.get("/product", function(req, res) {
-    db.Product.findAll({}).then(function(results) {
-      res.render("search", {strain_card: results});
+    const all_products = db.Product.findAll({});
+    const checkout = db.Purchase.findAll({});
+    Promise.all([all_products, checkout]).then(responses => {
+      res.render("search", {strain_card: responses[0], order: responses[1]});
     });
   });
   // Filters search page by variable
