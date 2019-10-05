@@ -142,8 +142,7 @@ $(".update-submit").on("click", function(event) {
 });
 
 
-$('.dropdown-toggle').dropdown()
-// checkout page
+
 $(".checkout-btn").on("click", function() {
   var email = $("#emailAddress").val().trim();
   var custName;
