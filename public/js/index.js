@@ -132,8 +132,6 @@ $(".update-submit").on("click", function(event) {
         .val()
         .trim()
     };
-    console.log(updateId);
-    console.log(updateStrain);
     $.ajax("/api/products/update/" + updateId, {
       type: "PUT",
       data: updateStrain
@@ -148,6 +146,44 @@ $(".checkout-btn").on("click", function() {
   $(".checkout").hide();
   alert("Thank You Come Again");
   $(".thanks").show();
+  $.ajax("/api/checkout", {
+    type: "GET"
+  }).then(function(result) {
+
+    for(i = 0; i < result.length; i++) {
+      var tempId = result[i].id;
+      console.log(result);
+
+      delete result[i].id;
+      delete result[i].createdAt;
+      delete result[i].updatedAt;
+      result[i].custName = "Kurt";
+      result[i].phone = "303-555-1234";
+      result[i].email = "kurt@gmail.com";
+
+      var newOrder = {
+        custName: result[i].custName,
+        prodName: result[i].name,
+        price: result[i].price,
+        amount: result[i].amount,
+        phone: result[i].phone,
+        email: result[i].email
+      };
+
+      $.ajax("/api/orders", {
+        method: "POST",
+        data: newOrder
+      }).then(function() {
+        console.log("Added " + newOrder.prodName + " to orders.");
+      });
+
+    };
+    $.ajax("/api/checkout/all", {
+      method: "DELETE"
+    }).then(function() {
+      console.log("Removed All");
+    });
+  });
   $(location).attr("href", "/");
+
 });
-master;
