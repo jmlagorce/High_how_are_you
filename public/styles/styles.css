@@ -241,6 +241,22 @@ input#search-input.search-bar {
  float: right;
 }
 
+.search-btn {
+  float: right;
+}
+
+.banner {
+  background-image: url("https://420mmjbudshop.com/wp-content/uploads/2019/08/Marijuana-banner.png");
+  height: 250px;
+  width: 90%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 10px 0px 0px 60px;
+  
+}
+
+
+
 
 
 
