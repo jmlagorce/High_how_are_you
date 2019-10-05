@@ -1,5 +1,20 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src=" https://igadiltd.com/wp-content/uploads/2017/03/blog6.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+<div class="content-products">
 <div class="cart">
 <h4>Shopping Cart</h4>
+
 
 <hr>
 {{#each order}}
@@ -11,7 +26,22 @@
 {{/each}}
 
 </div>
+
+<div class="search-type">
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select Type
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/product/type/sativa">Sativa</a>
+    <a class="dropdown-item" href="/product/type/indica">Indica</a>
+    <a class="dropdown-item" href="/product/type/hybrid">Hybrid</a>
+  </div>
+</div>
+<input type="search" class="search-bar" id="search-input" placeholder="Search Strain Name....">
+</div>
  {{#each strain_card}}
+ 
 <div class="card strain-card" style="width: 18rem;">
   <img src="https://www.laweekly.com/wp-content/uploads/2019/05/thc_design_s_cali-dad_og_is_sativa-dominant_and_tested_at_22-759x500.jpg" class="card-img-top product-img" alt="...">
  
@@ -67,4 +97,5 @@
 </div>
 {{/each}}
 
-<div class="thanks">Thank You for Purchasing with us</div>
+</div>
+

@@ -18,22 +18,18 @@ module.exports = function(app) {
   // Filters search page by variable
   // Filter by mood
   app.get("/product/mood/:mood", function(req, res) {
-    db.Product.findAll({
-      where: {
-        mood: req.params.mood
-      }
-    }).then(function(results) {
-      res.render("search");
-    });
+    
   });
   // Filter by type
   app.get("/product/type/:type", function(req, res) {
-    db.Product.findAll({
+    const all_products = db.Product.findAll({
       where: {
-        race: req.params.type
+        type: req.params.type
       }
-    }).then(function(results) {
-      res.render("search");
+    });
+    const checkout = db.Purchase.findAll({});
+    Promise.all([all_products, checkout]).then(responses => {
+      res.render("search", {strain_card: responses[0], order: responses[1]});
     });
   });
   // Filter by name

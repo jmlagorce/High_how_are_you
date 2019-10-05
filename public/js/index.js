@@ -141,6 +141,8 @@ $(".update-submit").on("click", function(event) {
   }
 });
 
+
+$('.dropdown-toggle').dropdown()
 // checkout page
 $(".checkout-btn").on("click", function() {
   var email = $("#emailAddress").val().trim();
@@ -153,8 +155,6 @@ $(".checkout-btn").on("click", function() {
     type: "GET"
   }).then(function(result) {
     for(i = 0; i < result.length; i++) {
-      var tempId = result[i].id;
-      console.log(result);
 
       delete result[i].id;
       delete result[i].createdAt;
