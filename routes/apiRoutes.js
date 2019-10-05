@@ -21,8 +21,8 @@ module.exports = function(app) {
     });
   });
   // Get By Race
-  app.get('/api/products/race/:race', function(req, res) {
-    db.Product.findAll({where: {race: req.params.race}}).then(function(results) {
+  app.get('/api/products/type/:race', function(req, res) {
+    db.Product.findAll({where: {type: req.params.type}}).then(function(results) {
       res.json(results);
     });
   });
@@ -93,6 +93,19 @@ module.exports = function(app) {
       where: {},
       truncate: true
     }).then(function(results) {
+      res.json(results);
+    });
+  });
+  // ======================== Checkout API Routes ========================
+  // See All Orders
+  app.get("/api/orders", function(req, res) {
+    db.Order.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  });
+  // Add New Orders
+  app.post("/api/orders", function(req, res) {
+    db.Order.create(req.body).then(function(results) {
       res.json(results);
     });
   });
