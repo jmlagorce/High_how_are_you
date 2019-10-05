@@ -1,6 +1,22 @@
 <div class="banner">
   <h2 class="page-title">Products</h2>
 </div>
+<div class="search-type">
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select Type
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/product/type/sativa">Sativa</a>
+    <a class="dropdown-item" href="/product/type/indica">Indica</a>
+    <a class="dropdown-item" href="/product/type/hybrid">Hybrid</a>
+  </div>
+</div>
+<button type="search" class="btn btn-primary search-btn">Search</button>
+<input type="search" class="search-bar" id="search-input" placeholder="Search Strain Name....">
+
+</div>
+
 <div class="content-products">
 <div class="cart">
 <h4>Shopping Cart</h4>
@@ -32,7 +48,6 @@
 <button type="search" class="btn btn-primary search-btn">Search</button>
 <input type="search" class="search-bar" id="search-input" placeholder="Search Strain Name....">
 
-</div>
  {{#each strain_card}}
  
 <div class="card strain-card" style="width: 18rem;">
