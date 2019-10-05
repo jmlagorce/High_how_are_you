@@ -77,18 +77,8 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-  // Delete one item from checkout
-  app.delete('/api/checkout/:id', function(req, res) {
-    db.Purchase.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
   // Delete all items in checkout
-  app.delete("/api/checkout", function(req, res) {
+  app.delete("/api/checkout/all", function(req, res) {
     db.Purchase.destroy({
       where: {},
       truncate: true

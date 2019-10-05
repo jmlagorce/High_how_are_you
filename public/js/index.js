@@ -151,16 +151,19 @@ $(".checkout-btn").on("click", function() {
   }).then(function(result) {
 
     for(i = 0; i < result.length; i++) {
+      var tempId = result[i].id;
+      console.log(result);
 
       delete result[i].id;
       delete result[i].createdAt;
       delete result[i].updatedAt;
-      result[i].name = "Kurt";
+      result[i].custName = "Kurt";
       result[i].phone = "303-555-1234";
       result[i].email = "kurt@gmail.com";
 
       var newOrder = {
-        name: result[i].name,
+        custName: result[i].custName,
+        prodName: result[i].name,
         price: result[i].price,
         amount: result[i].amount,
         phone: result[i].phone,
@@ -171,12 +174,16 @@ $(".checkout-btn").on("click", function() {
         method: "POST",
         data: newOrder
       }).then(function() {
-        console.log("Added to Orders");
+        console.log("Added " + newOrder.prodName + " to orders.");
       });
 
-    }
-    
+    };
+    $.ajax("/api/checkout/all", {
+      method: "DELETE"
+    }).then(function() {
+      console.log("Removed All");
+    });
   });
-  // $(location).attr("href", "/");
+  $(location).attr("href", "/");
 
 });
