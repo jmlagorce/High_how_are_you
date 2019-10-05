@@ -44,15 +44,15 @@ module.exports = function(app) {
   });
 
   // Example Product Route. Will expand once tables have been created with data.
-  app.get("/product/:id", function(req, res) {
-    db.Product.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(results) {
-      res.render("product")
-    });
-  });
+  // app.get("/product/id/:id", function(req, res) {
+  //   db.Product.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function(results) {
+  //     res.render("product")
+  //   });
+  // });
   // Loads checkout page
   app.get("/checkout", function(req, res) {
     db.Purchase.findAll({}).then(function(results) {
