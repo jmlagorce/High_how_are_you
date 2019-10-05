@@ -189,13 +189,53 @@ div.card.strain-card {
   width: 225px;
 }
 
-.cart {
+div.cart {
   width: 200px;
   height: 500px;
-  border: black 2px solid;
+  
   float: right;
   margin: 30px 20px 10px 10px;
-  background-color: gray;
+  background-color: darkgrey;
   color: white;
   text-align: center;
+  position: sticky;
+  top: 0;
+}
+
+.content-products {
+  height: 1000px;
+  width: auto;
+}
+
+p, h4 {
+  text-align: center;
+}
+
+/* Type dropdown and search bar CSS */
+.search-type {
+  width: 900px;
+  height: 40px;
+  float: left;
+
+  margin: 30px 0px 0px 40px;
+}
+
+
+.dropdown {
+  float: left;
+}
+
+.carousel {
+  border: black 2px solid;
+  width: 80%;
+  clear: both;
+  
+}
+
+
+
+input#search-input.search-bar {
+ position: static;
+ width: 300px;
+ float: right;
 }
