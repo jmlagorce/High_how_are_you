@@ -198,6 +198,7 @@ div.cart {
   background-color: darkgrey;
   color: white;
   text-align: center;
+
   position: sticky;
   top: 0;
 }
@@ -239,3 +240,7 @@ input#search-input.search-bar {
  width: 300px;
  float: right;
 }
+
+
+
+
