@@ -58,7 +58,7 @@ input.btn.btn-primary.add-product-btn.login-btn {
   float: left;
   margin: 10px 10px 20px 10px;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px blue;
+  box-shadow: 5px 10px 4px gray;
 }
 
 .low-stock {
@@ -69,7 +69,7 @@ input.btn.btn-primary.add-product-btn.login-btn {
   float: left;
   margin: 20px 5px 20px 10px;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px red;
+  box-shadow: 5px 10px 4px gray;
 }
 
 .add-product {
@@ -80,9 +80,9 @@ input.btn.btn-primary.add-product-btn.login-btn {
 
   border: blue 2px solid;
 
-  margin: 20px 10px 10px 10px;
+  margin: 20px 10px 30px 10px;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px blue;
+  box-shadow: 5px 10px 4px gray;
 }
 
 .inventory {
@@ -94,7 +94,7 @@ input.btn.btn-primary.add-product-btn.login-btn {
   top: 40%;
   left: 21.75%;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px green;
+  box-shadow: 5px 10px 4px gray;
 }
 
 /* Checkout CSS */
@@ -218,7 +218,7 @@ p, h4 {
   height: 40px;
   float: left;
 
-  margin: 30px 0px 0px 40px;
+  margin: 30px 0px 0px 70px;
 }
 
 
@@ -259,6 +259,7 @@ div.banner {
   font-size: 88px;
   color: white;
   padding: 60px;
+  font-family: 'Oswald', sans-serif;
 }
 
 
