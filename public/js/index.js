@@ -140,9 +140,7 @@ $(".update-submit").on("click", function(event) {
     });
   }
 });
-
-
-
+// =============== Checkout Page ===============
 $(".checkout-btn").on("click", function() {
   var email = $("#emailAddress").val().trim();
   var custName;
@@ -187,4 +185,29 @@ $(".checkout-btn").on("click", function() {
   });
   $(location).attr("href", "/");
 
+});
+
+// =============== Product Page ===============
+// Add Item to cart
+$(".add-product-btn").on("click", function() {
+  var id = this.value;
+  var amount = $(`#${this.name}`).val();
+  
+  $.ajax("/api/products/id/" + id, {
+    type: "GET",
+  }).then(function(result) {
+    console.log(result);
+    var newItem = {
+      name: result.name,
+      price: result.price,
+      amount: amount
+    };
+    console.log(newItem);
+    $.ajax("/api/checkout", {
+      method: "POST",
+      data: newItem
+    }).then(function() {
+      location.reload(true);
+    })
+  })
 });

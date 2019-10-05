@@ -16,7 +16,7 @@ module.exports = function(app) {
     });
   });
   // Filters search page by variable
-  // Filter by mood
+  // Filter by mood *not currently used*
   app.get("/product/mood/:mood", function(req, res) {
     
   });
@@ -42,17 +42,6 @@ module.exports = function(app) {
       res.render("search");
     });
   });
-
-  // Example Product Route. Will expand once tables have been created with data.
-  // app.get("/product/id/:id", function(req, res) {
-  //   db.Product.findOne({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function(results) {
-  //     res.render("product")
-  //   });
-  // });
   // Loads checkout page
   app.get("/checkout", function(req, res) {
     db.Purchase.findAll({}).then(function(results) {
@@ -78,6 +67,7 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+  // Renders blog page
   app.get("/blog", function(req, res) {
     res.render("blog");
   });

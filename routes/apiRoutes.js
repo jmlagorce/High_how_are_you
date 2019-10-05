@@ -8,6 +8,12 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+  // By Id
+  app.get("/api/products/id/:id", function(req, res) {
+    db.Product.findOne({where: {id: req.params.id} }).then(function(results) {
+      res.json(results);
+    });
+  });
   // By Name
   app.get('/api/products/name/:name', function(req, res) {
     db.Product.findOne({where: {name: req.params.name} }).then(function(results) {

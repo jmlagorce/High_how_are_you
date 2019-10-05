@@ -53,8 +53,8 @@
         </ul>
         <br>
         <div class="form-group">
-    <label for="exampleFormControlSelect1">Select Quantity</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <label for={{this.name}}>Select Quantity</label>
+    <select class="form-control" id={{this.name}}>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -87,7 +87,7 @@
     </select>
   </div>
   <br>
-        <button type="submit" class="btn btn-primary add-product-btn submit">Add to Cart</button>
+        <button type="submit" class="btn btn-primary add-product-btn submit" value={{this.id}} name={{this.name}}>Add to Cart</button>
     
   </div>
 </div>
