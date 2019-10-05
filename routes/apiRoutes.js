@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
   });
   // Get By Race
-  app.get('/api/products/type/:race', function(req, res) {
+  app.get('/api/products/type/:type', function(req, res) {
     db.Product.findAll({where: {type: req.params.type}}).then(function(results) {
       res.json(results);
     });

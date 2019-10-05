@@ -83,6 +83,6 @@ module.exports = function(app) {
     res.render("404");
   });
   app.get("/blog", function(req, res) {
-    res.render("example");
+    res.render("blog");
   });
 };
