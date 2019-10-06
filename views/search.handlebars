@@ -48,7 +48,8 @@
            <li>Type: {{this.type}}</td>
            <li>Mood: {{this.mood}}</td>
            <li>Price: ${{this.price}} Per Gram</td>
-           <li> {{description}} </li>
+           <li><button class="descript-btn" value="{{this.id}}" name="{{this.name}}">Description</button></li>
+           <li><span id="{{this.name}}_{{this.id}}"></span>{{description}}</li>
 
         </ul>
         <br>
@@ -87,7 +88,7 @@
     </select>
   </div>
   <br>
-        <button type="submit" class="btn btn-primary add-product-btn submit" value={{this.id}} name={{this.name}}>Add to Cart</button>
+        <button type="submit" class="btn btn-primary add-product-btn submit" value="{{this.id}}" name="{{this.name}}">Add to Cart</button>
     
   </div>
 </div>

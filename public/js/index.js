@@ -208,6 +208,23 @@ $(".add-product-btn").on("click", function() {
       data: newItem
     }).then(function() {
       location.reload(true);
-    })
-  })
+    });
+  });
 });
+// Pull Description From API
+$(".descript-btn").on("click", function() {
+  var identifier = this.name + "_" + this.value;
+  const apikey = "I8SKiAB";
+  var name = 1437;
+  // var name = this.name;
+  $.get("strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name, function(result) {
+    console.log(result);
+  })
+  // $.ajax({
+  //   url: "strainapi.evanbusse.com/" + apikey + "/strains/search/name/" + name,
+  //   dataType: "json"
+  // }).then(function(results) {
+  //   console.log(results);
+  // })
+})
+
