@@ -12,14 +12,12 @@ module.exports = function(app) {
     const all_products = db.Product.findAll({});
     const checkout = db.Purchase.findAll({});
     Promise.all([all_products, checkout]).then(responses => {
-      res.render("search", {strain_card: responses[0], order: responses[1]});
+      res.render("search", { strain_card: responses[0], order: responses[1] });
     });
   });
   // Filters search page by variable
   // Filter by mood *not currently used*
-  app.get("/product/mood/:mood", function(req, res) {
-    
-  });
+  app.get("/product/mood/:mood", function(req, res) {});
   // Filter by type
   app.get("/product/type/:type", function(req, res) {
     const all_products = db.Product.findAll({
@@ -29,7 +27,7 @@ module.exports = function(app) {
     });
     const checkout = db.Purchase.findAll({});
     Promise.all([all_products, checkout]).then(responses => {
-      res.render("search", {strain_card: responses[0], order: responses[1]});
+      res.render("search", { strain_card: responses[0], order: responses[1] });
     });
   });
   // Filter by name
@@ -45,7 +43,7 @@ module.exports = function(app) {
   // Loads checkout page
   app.get("/checkout", function(req, res) {
     db.Purchase.findAll({}).then(function(results) {
-      res.render("checkout", {purchased: results});
+      res.render("checkout", { purchased: results });
     });
   });
   // Loads admin page
@@ -60,7 +58,7 @@ module.exports = function(app) {
       }
     });
     Promise.all([all_inventory, low_inventory]).then(responses => {
-      res.render("admin", { strain: responses[0], lowstrain: responses[1]});
+      res.render("admin", { strain: responses[0], lowstrain: responses[1] });
     });
   });
   // Render 404 page for any unmatched routes

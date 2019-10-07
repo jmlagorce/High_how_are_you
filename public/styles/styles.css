@@ -17,7 +17,7 @@ body {
 /* admin CSS */
 #admin-bg {
   width: 100%;
-  height: 600px;
+  height: 700px;
   filter: blur(10px);
   -webkit-filter: blur(10px);
   opacity: 0.5;
@@ -163,6 +163,17 @@ nav {
   font-family: "Montserrat", sans-serif;
 }
 
+a.navbar-brand {
+  margin-left: 100px;
+}
+a.nav-link {
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  left: 400px;
+  font-size: 14px;
+}
+
 footer {
   font-family: "Montserrat", sans-serif;
   background-color: #424242;
@@ -171,7 +182,7 @@ footer {
   margin-top: 50px;
   bottom: 0px;
   width: 100%;
-  height: 40px;
+  height: 50px;
   font-size: 8px;
   color: #dddddd;
   font-weight: lighter;
@@ -185,9 +196,10 @@ footer {
   width: 40%;
   text-align: center;
   position: absolute;
-  top: 20%;
+  top: 25%;
   right: 29%;
   color: #424242;
+  padding-top: 30px;
 }
 
 a#refresh-page.btn.btn-alpha {
@@ -204,6 +216,7 @@ h3.age {
 
 p.age {
   color: #424242;
+  margin-top: 16px;
 }
 
 small.age {
@@ -289,4 +302,37 @@ div.banner {
   color: white;
   padding: 60px;
   font-family: "Oswald", sans-serif;
+}
+
+/* index css  */
+
+.jumbotron {
+  width: 100%;
+  /* position: relative;
+  top: 8%; */
+  background-image: url("../images/Plant1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  color: #f5f5f5;
+  height: 70%;
+}
+
+.jumbo-text {
+  margin: 100px;
+}
+
+p.welcome {
+  text-align: left;
+  font-size: 20px;
+}
+
+.card-container {
+  margin: 20px;
+}
+
+.twitter-container {
+  margin: 20px 20px 100px 20px;
+  height: 300px;
+  overflow: auto;
 }
