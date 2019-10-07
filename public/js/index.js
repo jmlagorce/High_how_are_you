@@ -196,7 +196,6 @@ $(".add-product-btn").on("click", function() {
   $.ajax("/api/products/id/" + id, {
     type: "GET",
   }).then(function(result) {
-    console.log(result);
     var newItem = {
       name: result.name,
       price: result.price,
@@ -216,15 +215,24 @@ $(".descript-btn").on("click", function() {
   var identifier = this.name + "_" + this.value;
   const apikey = "I8SKiAB";
   var name = 1437;
-  // var name = this.name;
-  $.get("strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name, function(result) {
-    console.log(result);
-  })
-  // $.ajax({
-  //   url: "strainapi.evanbusse.com/" + apikey + "/strains/search/name/" + name,
-  //   dataType: "json"
-  // }).then(function(results) {
-  //   console.log(results);
+  // // var name = this.name;
+  // $.get("strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name, function(result) {
+  //   console.log(result);
+  // })
+  var queryURL =
+      "strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name;
+    // ajax call
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(ajax)
+      console.log(response)
+    });
+  // $.ajax("/api/products/description", {
+  //   type: "GET"
+  // }).then(function(data) {
+  //   console.log(data);
   // })
 })
 
