@@ -212,11 +212,12 @@ $(".add-product-btn").on("click", function() {
 });
 // Pull Description From API
 $(".descript-btn").on("click", function() {
+  console.log("Clicked");
   var identifier = this.name + "_" + this.value;
   const apikey = "I8SKiAB";
   var name = 1437;
-  $.get("/api/products/description", function(response) {
+  $.get("https://strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name, function(response) {
     console.log(response);
-  });
+  })
 })
 

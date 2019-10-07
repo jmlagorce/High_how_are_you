@@ -105,10 +105,4 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-  // Outside Call
-  app.get("/api/products/description", function(req, res) {
-    $.get("strainapi.evanbusse.com/I8SKiAB/strains/data/desc/1437", function(response) {
-      res.json(response);
-    });
-  });
 };
