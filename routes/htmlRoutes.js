@@ -59,8 +59,9 @@ module.exports = function(app) {
         }
       }
     });
-    Promise.all([all_inventory, low_inventory]).then(responses => {
-      res.render("admin", { strain: responses[0], lowstrain: responses[1]});
+    const current_orders = db.Order.findAll({});
+    Promise.all([all_inventory, low_inventory, current_orders]).then(responses => {
+      res.render("admin", { strain: responses[0], lowstrain: responses[1], order: responses[2]});
     });
   });
   // Render 404 page for any unmatched routes

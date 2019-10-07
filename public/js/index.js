@@ -91,22 +91,7 @@ $(".new-submit").on("click", function(event) {
       price: $("#new_price")
         .val()
         .trim(),
-
-      name: $("#new_name")
-        .val()
-        .trim(),
-      race: $("#new_race")
-        .val()
-        .trim(),
-      mood: $("#new_mood")
-        .val()
-        .trim(),
-      stock: $("#new_stock")
-        .val()
-        .trim(),
-      price: $("#new_price")
-        .val()
-        .trim()
+      strainId: $("#new_id").val().trim()
     };
 
     $.ajax("/api/products", {
@@ -114,7 +99,7 @@ $(".new-submit").on("click", function(event) {
       data: newStrain
     }).then(function() {
       console.log("added new strain");
-      // location.reload(true);
+      location.reload(true);
     });
   }
 });
@@ -213,11 +198,12 @@ $(".add-product-btn").on("click", function() {
 // Pull Description From API
 $(".descript-btn").on("click", function() {
   console.log("Clicked");
-  var identifier = this.name + "_" + this.value;
+  var identifier = this.value;
   const apikey = "I8SKiAB";
-  var name = 1437;
-  $.get("https://strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name, function(response) {
+  var strainId = this.name;
+  $.get("https://strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + strainId, function(response) {
     console.log(response);
+    $(`#${identifier}`).text(response.desc);
   })
 })
 
