@@ -12,14 +12,12 @@ module.exports = function(app) {
     const all_products = db.Product.findAll({});
     const checkout = db.Purchase.findAll({});
     Promise.all([all_products, checkout]).then(responses => {
-      res.render("search", {strain_card: responses[0], order: responses[1]});
+      res.render("search", { strain_card: responses[0], order: responses[1] });
     });
   });
   // Filters search page by variable
   // Filter by mood *not currently used*
-  app.get("/product/mood/:mood", function(req, res) {
-    
-  });
+  app.get("/product/mood/:mood", function(req, res) {});
   // Filter by type
   app.get("/product/type/:type", function(req, res) {
     const all_products = db.Product.findAll({
@@ -29,7 +27,7 @@ module.exports = function(app) {
     });
     const checkout = db.Purchase.findAll({});
     Promise.all([all_products, checkout]).then(responses => {
-      res.render("search", {strain_card: responses[0], order: responses[1]});
+      res.render("search", { strain_card: responses[0], order: responses[1] });
     });
   });
   // Filter by name
@@ -45,9 +43,9 @@ module.exports = function(app) {
   // Loads checkout page
   app.get("/checkout", function(req, res) {
     const all_checkout = db.Purchase.findAll({});
-    const total_price = db.Purchase.sum('total')
+    const total_price = db.Purchase.sum("total");
     Promise.all([all_checkout, total_price]).then(responses => {
-      res.render("checkout", {purchased: responses[0], total: responses[1]})
+      res.render("checkout", { purchased: responses[0], total: responses[1] });
     });
   });
   // Loads admin page
@@ -62,9 +60,15 @@ module.exports = function(app) {
       }
     });
     const current_orders = db.Order.findAll({});
-    Promise.all([all_inventory, low_inventory, current_orders]).then(responses => {
-      res.render("admin", { strain: responses[0], lowstrain: responses[1], order: responses[2]});
-    });
+    Promise.all([all_inventory, low_inventory, current_orders]).then(
+      responses => {
+        res.render("admin", {
+          strain: responses[0],
+          lowstrain: responses[1],
+          order: responses[2]
+        });
+      }
+    );
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
