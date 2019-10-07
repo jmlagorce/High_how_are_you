@@ -6,14 +6,16 @@
       <th scope="col">Name</th>
       <th scope="col">Quantity</th>
       <th scope="col">Price</th>
+      <th scope="col">Item Total</th>
     </tr>
   </thead>
   <tbody>
      {{#each purchased}}
         <tr>
             <td>{{this.name}}</td>
-            <td>{{this.amount}} grams</td>
+            <td>{{this.amount}} Grams</td>
             <td>${{this.price}}</td>
+            <td>${{this.total}}</td>
             
         </tr>
     {{/each}}
@@ -21,9 +23,7 @@
 </table>
 
 <div class="total">
-    <p>Total:$ </p>
-
-
+    <p>Total:${{total}} </p>
 </div>
 <label for="emailAddress">Email</label><br/>
 <input id="emailAddress" type="email" placeholder="user@example.gov"
