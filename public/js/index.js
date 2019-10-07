@@ -196,7 +196,6 @@ $(".add-product-btn").on("click", function() {
   $.ajax("/api/products/id/" + id, {
     type: "GET",
   }).then(function(result) {
-    console.log(result);
     var newItem = {
       name: result.name,
       price: result.price,
@@ -208,6 +207,16 @@ $(".add-product-btn").on("click", function() {
       data: newItem
     }).then(function() {
       location.reload(true);
-    })
-  })
+    });
+  });
 });
+// Pull Description From API
+$(".descript-btn").on("click", function() {
+  var identifier = this.name + "_" + this.value;
+  const apikey = "I8SKiAB";
+  var name = 1437;
+  $.get("/api/products/description", function(response) {
+    console.log(response);
+  });
+})
+
