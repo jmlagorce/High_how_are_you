@@ -2,7 +2,7 @@
 /* Seeds for Product Database */
 INSERT INTO products (id, name, type, mood, stock, price, strainId, createdAt, updatedAt) VALUES (1, "Purple Haze", "Indica", "Chill", 300, 8.60, 1637, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
 INSERT INTO products (id, name, type, mood, stock, price, strainId, createdAt, updatedAt) VALUES (2, "Northern Lights", "Indica", "Relaxing", 275, 13.90, 1437, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
-INSERT INTO products (id, name, type, mood, stock, price, strainId, createdAt, updatedAt) VALUES (3, "Purple Sour Diesel", "Stavia", "Relaxing", 25, 9.70, 1663, 863, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
+INSERT INTO products (id, name, type, mood, stock, price, strainId, createdAt, updatedAt) VALUES (3, "Purple Sour Diesel", "Stavia", "Relaxing", 25, 9.70, 1663, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
 INSERT INTO products (id, name, type, mood, stock, price, strainId, createdAt, updatedAt) VALUES (4, "Girl Scout Cookies", "Hybrid", "Party", 130, 8.30, 863, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
 INSERT INTO products (id, name, type, mood, stock, price, strainId, createdAt, updatedAt) VALUES (5, "OG Kush", "Hybrid", "Intense", 235, 6.75, 1455, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
 INSERT INTO products (id, name, type, mood, stock, price, strainId, createdAt, updatedAt) VALUES (6, "Green Crack", "Sativa", "Energetic", 175, 11.25, 934, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
