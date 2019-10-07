@@ -59,6 +59,7 @@ jQuery(document).ready(function($) {
     location.replace("https://www.disney.com");
   });
 });
+// =============== Admin Page ===============
 // Remove Product
 $(".remove").on("click", function(event) {
   event.preventDefault();
@@ -69,6 +70,17 @@ $(".remove").on("click", function(event) {
     location.reload(true);
   });
 });
+// Remove Order
+$(".order-remove").on("click", function(event) {
+  event.preventDefault();
+  var removedOrder = this.value;
+  console.log(removedOrder);
+  $.ajax("api/orders/" + removedOrder, {
+    method: "DELETE"
+  }).then(function() {
+    location.reload(true);
+  })
+})
 // Add new product
 $(".new-submit").on("click", function(event) {
   event.preventDefault();

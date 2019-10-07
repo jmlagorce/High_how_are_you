@@ -154,6 +154,7 @@
           <th scope="col">Item</th>
           <th scope="col">Price</th>
           <th scope="col">Amount</th>
+          <th scope="col">Remove Order</th>
         </tr>
       </thead>
       <tbody>
@@ -163,7 +164,7 @@
           <td>{{this.prodName}}</td>
           <td>${{this.price}}</td>
           <td>{{this.amount}} Grams</td>
-          <td><button type="button" class="btn btn-primary remove" value={{this.id}}>Remove</button></td>
+          <td><button type="button" class="btn btn-primary order-remove" value={{this.id}}>Remove Order</button></td>
 
         </tr>
         {{/each}}
