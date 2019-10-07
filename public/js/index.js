@@ -215,24 +215,8 @@ $(".descript-btn").on("click", function() {
   var identifier = this.name + "_" + this.value;
   const apikey = "I8SKiAB";
   var name = 1437;
-  // // var name = this.name;
-  // $.get("strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name, function(result) {
-  //   console.log(result);
-  // })
-  var queryURL =
-      "strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + name;
-    // ajax call
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      console.log(ajax)
-      console.log(response)
-    });
-  // $.ajax("/api/products/description", {
-  //   type: "GET"
-  // }).then(function(data) {
-  //   console.log(data);
-  // })
+  $.get("/api/products/description", function(response) {
+    console.log(response);
+  });
 })
 
