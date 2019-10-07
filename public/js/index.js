@@ -59,6 +59,7 @@ jQuery(document).ready(function($) {
     location.replace("https://www.disney.com");
   });
 });
+// =============== Admin Page ===============
 // Remove Product
 $(".remove").on("click", function(event) {
   event.preventDefault();
@@ -69,6 +70,17 @@ $(".remove").on("click", function(event) {
     location.reload(true);
   });
 });
+// Remove Order
+$(".order-remove").on("click", function(event) {
+  event.preventDefault();
+  var removedOrder = this.value;
+  console.log(removedOrder);
+  $.ajax("api/orders/" + removedOrder, {
+    method: "DELETE"
+  }).then(function() {
+    location.reload(true);
+  })
+})
 // Add new product
 $(".new-submit").on("click", function(event) {
   event.preventDefault();
@@ -91,22 +103,7 @@ $(".new-submit").on("click", function(event) {
       price: $("#new_price")
         .val()
         .trim(),
-
-      name: $("#new_name")
-        .val()
-        .trim(),
-      race: $("#new_race")
-        .val()
-        .trim(),
-      mood: $("#new_mood")
-        .val()
-        .trim(),
-      stock: $("#new_stock")
-        .val()
-        .trim(),
-      price: $("#new_price")
-        .val()
-        .trim()
+      strainId: $("#new_id").val().trim()
     };
 
     $.ajax("/api/products", {
@@ -114,7 +111,7 @@ $(".new-submit").on("click", function(event) {
       data: newStrain
     }).then(function() {
       console.log("added new strain");
-      // location.reload(true);
+      location.reload(true);
     });
   }
 });
@@ -142,7 +139,10 @@ $(".update-submit").on("click", function(event) {
 });
 // =============== Checkout Page ===============
 $(".checkout-btn").on("click", function() {
-  var email = $("#emailAddress").val().trim();
+  if ($("#emailAddress").val().length === 0) {
+    alert("Please enter your email address!")
+  } else {
+    var email = $("#emailAddress").val().trim();
   var custName;
   var phone;
   $(".checkout").hide();
@@ -184,6 +184,7 @@ $(".checkout-btn").on("click", function() {
     });
   });
   $(location).attr("href", "/");
+  }
 
 });
 
@@ -192,15 +193,15 @@ $(".checkout-btn").on("click", function() {
 $(".add-product-btn").on("click", function() {
   var id = this.value;
   var amount = $(`#${this.name}`).val();
-  
+
   $.ajax("/api/products/id/" + id, {
     type: "GET",
   }).then(function(result) {
-    console.log(result);
     var newItem = {
       name: result.name,
       price: result.price,
-      amount: amount
+      amount: amount,
+      total: Number(amount) * Number(result.price)
     };
     console.log(newItem);
     $.ajax("/api/checkout", {
@@ -208,6 +209,18 @@ $(".add-product-btn").on("click", function() {
       data: newItem
     }).then(function() {
       location.reload(true);
-    })
-  })
+    });
+  });
 });
+// Pull Description From API
+$(".descript-btn").on("click", function() {
+  console.log("Clicked");
+  var identifier = this.value;
+  const apikey = "I8SKiAB";
+  var strainId = this.name;
+  $.get("https://strainapi.evanbusse.com/" + apikey + "/strains/data/desc/" + strainId, function(response) {
+    console.log(response);
+    $(`#${identifier}`).text(response.desc);
+  })
+})
+

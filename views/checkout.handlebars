@@ -1,35 +1,38 @@
 <div class="checkout">
-  <h4 class="table-name">Shopping Cart</h4>
+  <h3 class="table-name">Checkout</h3>
   <table class="table table-dark">
     <thead>
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Quantity</th>
         <th scope="col">Price</th>
+        <th scope="col">Item Total</th>
       </tr>
     </thead>
     <tbody>
       {{#each purchased}}
       <tr>
-
         <td>{{this.name}}</td>
-        <td>{{this.amount}} grams</td>
+        <td>{{this.amount}} Grams</td>
         <td>${{this.price}}</td>
+        <td>${{this.total}}</td>
 
       </tr>
       {{/each}}
     </tbody>
   </table>
 
-</div>
-<label for="emailAddress">Email</label><br />
-<input id="emailAddress" type="email" placeholder="user@example.gov" list="defaultEmails" size="64" maxlength="256"
-  multiple>
+  <div class="total">
+    <p>Total:${{total}} </p>
+  </div>
+  <label for="emailAddress">Email</label><br />
+  <input id="emailAddress" type="email" placeholder="user@example.gov" list="defaultEmails" size="64" maxlength="256"
+    multiple>
 
-<div class="total">
-  <p>Total:$ </p>
+  <div class="total">
+    <p>Total:$ </p>
 
-</div>
+  </div>
 
-<button type="button" class="btn btn-primary checkout-btn">Checkout</button>
+  <button type="button" class="btn btn-primary checkout-btn">Checkout</button>
 </div>

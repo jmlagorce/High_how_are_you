@@ -42,8 +42,10 @@ module.exports = function(app) {
   });
   // Loads checkout page
   app.get("/checkout", function(req, res) {
-    db.Purchase.findAll({}).then(function(results) {
-      res.render("checkout", { purchased: results });
+    const all_checkout = db.Purchase.findAll({});
+    const total_price = db.Purchase.sum("total");
+    Promise.all([all_checkout, total_price]).then(responses => {
+      res.render("checkout", { purchased: responses[0], total: responses[1] });
     });
   });
   // Loads admin page
@@ -57,9 +59,16 @@ module.exports = function(app) {
         }
       }
     });
-    Promise.all([all_inventory, low_inventory]).then(responses => {
-      res.render("admin", { strain: responses[0], lowstrain: responses[1] });
-    });
+    const current_orders = db.Order.findAll({});
+    Promise.all([all_inventory, low_inventory, current_orders]).then(
+      responses => {
+        res.render("admin", {
+          strain: responses[0],
+          lowstrain: responses[1],
+          order: responses[2]
+        });
+      }
+    );
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
