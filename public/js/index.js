@@ -132,8 +132,6 @@ $(".update-submit").on("click", function(event) {
         .val()
         .trim()
     };
-    console.log(updateId);
-    console.log(updateStrain);
     $.ajax("/api/products/update/" + updateId, {
       type: "PUT",
       data: updateStrain
@@ -142,12 +140,74 @@ $(".update-submit").on("click", function(event) {
     });
   }
 });
-
-// checkout page
+// =============== Checkout Page ===============
 $(".checkout-btn").on("click", function() {
+  var email = $("#emailAddress").val().trim();
+  var custName;
+  var phone;
   $(".checkout").hide();
   alert("Thank You Come Again");
   $(".thanks").show();
+  $.ajax("/api/checkout", {
+    type: "GET"
+  }).then(function(result) {
+    for(i = 0; i < result.length; i++) {
+
+      delete result[i].id;
+      delete result[i].createdAt;
+      delete result[i].updatedAt;
+      result[i].custName = custName;
+      result[i].phone = phone;
+      result[i].email = email;
+
+      var newOrder = {
+        custName: result[i].custName,
+        prodName: result[i].name,
+        price: result[i].price,
+        amount: result[i].amount,
+        phone: result[i].phone,
+        email: result[i].email
+      };
+
+      $.ajax("/api/orders", {
+        method: "POST",
+        data: newOrder
+      }).then(function() {
+        console.log("Added " + newOrder.prodName + " to orders.");
+      });
+
+    };
+    $.ajax("/api/checkout/all", {
+      method: "DELETE"
+    }).then(function() {
+      console.log("Removed All");
+    });
+  });
   $(location).attr("href", "/");
+
 });
-master;
+
+// =============== Product Page ===============
+// Add Item to cart
+$(".add-product-btn").on("click", function() {
+  var id = this.value;
+  var amount = $(`#${this.name}`).val();
+  
+  $.ajax("/api/products/id/" + id, {
+    type: "GET",
+  }).then(function(result) {
+    console.log(result);
+    var newItem = {
+      name: result.name,
+      price: result.price,
+      amount: amount
+    };
+    console.log(newItem);
+    $.ajax("/api/checkout", {
+      method: "POST",
+      data: newItem
+    }).then(function() {
+      location.reload(true);
+    })
+  })
+});

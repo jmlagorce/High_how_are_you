@@ -9,4 +9,4 @@ INSERT INTO products (id, name, type, mood, stock, price, createdAt, updatedAt) 
 INSERT INTO users (id, userName, password, createdAt, updatedAt) VALUES (1, "admin", "admin", "2019-09-20 00:00:00", "2019-09-20 00:00:00");
 /* Checkout Table Seed --- For Testing Only ---- Remove Before Deploy */
 INSERT INTO purchases (id, name, price, amount, createdAt, updatedAt) VALUES (1, "Sour Diesel", 9.70, 15, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
-INSERT INTO purchases (id, name, price, amount, createdAt, updatedAt) VALUES (1, "Northern Ligths", 13.90, 8, "2019-09-20 00:00:00", "2019-09-20 00:00:00");
+INSERT INTO purchases (id, name, price, amount, createdAt, updatedAt) VALUES (1, "Northern Lights", 13.90, 8, "2019-09-20 00:00:00", "2019-09-20 00:00:00");

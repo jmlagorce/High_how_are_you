@@ -8,6 +8,12 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+  // By Id
+  app.get("/api/products/id/:id", function(req, res) {
+    db.Product.findOne({where: {id: req.params.id} }).then(function(results) {
+      res.json(results);
+    });
+  });
   // By Name
   app.get('/api/products/name/:name', function(req, res) {
     db.Product.findOne({where: {name: req.params.name} }).then(function(results) {
@@ -21,8 +27,8 @@ module.exports = function(app) {
     });
   });
   // Get By Race
-  app.get('/api/products/race/:race', function(req, res) {
-    db.Product.findAll({where: {race: req.params.race}}).then(function(results) {
+  app.get('/api/products/type/:type', function(req, res) {
+    db.Product.findAll({where: {type: req.params.type}}).then(function(results) {
       res.json(results);
     });
   });
@@ -77,22 +83,25 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-  // Delete one item from checkout
-  app.delete('/api/checkout/:id', function(req, res) {
-    db.Purchase.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
   // Delete all items in checkout
-  app.delete("/api/checkout", function(req, res) {
+  app.delete("/api/checkout/all", function(req, res) {
     db.Purchase.destroy({
       where: {},
       truncate: true
     }).then(function(results) {
+      res.json(results);
+    });
+  });
+  // ======================== Checkout API Routes ========================
+  // See All Orders
+  app.get("/api/orders", function(req, res) {
+    db.Order.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  });
+  // Add New Orders
+  app.post("/api/orders", function(req, res) {
+    db.Order.create(req.body).then(function(results) {
       res.json(results);
     });
   });

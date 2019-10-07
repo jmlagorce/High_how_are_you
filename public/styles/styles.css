@@ -66,7 +66,7 @@ input.btn.btn-primary.add-product-btn.login-btn {
   float: left;
   margin: 10px 10px 20px 10px;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px blue;
+  box-shadow: 5px 10px 4px gray;
 }
 
 .low-stock {
@@ -77,7 +77,7 @@ input.btn.btn-primary.add-product-btn.login-btn {
   float: left;
   margin: 20px 5px 20px 10px;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px red;
+  box-shadow: 5px 10px 4px gray;
 }
 
 .add-product {
@@ -88,9 +88,9 @@ input.btn.btn-primary.add-product-btn.login-btn {
 
   border: blue 2px solid;
 
-  margin: 20px 10px 10px 10px;
+  margin: 20px 10px 30px 10px;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px blue;
+  box-shadow: 5px 10px 4px gray;
 }
 
 .inventory {
@@ -102,8 +102,8 @@ input.btn.btn-primary.add-product-btn.login-btn {
   top: 40%;
   left: 21.75%;
   background-color: lightgray;
-  box-shadow: 5px 10px 4px green;
-} */
+  box-shadow: 5px 10px 4px gray;
+}
 
 /* Checkout CSS */
 
@@ -213,13 +213,71 @@ div.card.strain-card {
   width: 225px;
 }
 
-.cart {
+div.cart {
   width: 200px;
   height: 500px;
-  border: black 2px solid;
+
   float: right;
   margin: 30px 20px 10px 10px;
-  background-color: gray;
+  background-color: darkgrey;
   color: white;
   text-align: center;
+
+  position: sticky;
+  top: 0;
+}
+
+.content-products {
+  height: 1000px;
+  width: auto;
+}
+
+p,
+h4 {
+  text-align: center;
+}
+
+/* Type dropdown and search bar CSS */
+.search-type {
+  width: 900px;
+  height: 40px;
+  float: left;
+
+  margin: 30px 0px 0px 70px;
+}
+
+.dropdown {
+  float: left;
+}
+
+.carousel {
+  border: black 2px solid;
+  width: 80%;
+  clear: both;
+}
+
+input#search-input.search-bar {
+  position: static;
+  width: 300px;
+  float: right;
+}
+
+.search-btn {
+  float: right;
+}
+
+div.banner {
+  background-image: url("https://420mmjbudshop.com/wp-content/uploads/2019/08/Marijuana-banner.png");
+  height: 250px;
+  width: 90%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 10px 0px 0px 60px;
+}
+
+.page-title {
+  font-size: 88px;
+  color: white;
+  padding: 60px;
+  font-family: "Oswald", sans-serif;
 }
