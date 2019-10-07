@@ -102,6 +102,12 @@
         <input type="input" class="form-control input" id="new_price" placeholder="">
       </div>
       <br>
+      <div class="form-group">
+        <label for="new_id">Strain Id</label>
+        <br>
+        <input type="input" class="form-control input" id="new_id" placeholder="">
+      </div>
+      <br>
       <button type="submit" class="btn btn-primary add-product-btn new-submit">Add</button>
     </form>
 
@@ -133,6 +139,32 @@
           <td>{{this.stock}} Grams</td>
           <td>${{this.price}}</td>
           <td><button type="button" class="btn btn-primary remove" value={{this.id}}>Remove</button></td>
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <div class="orders">
+    <h3 class="table-name">Current Orders</h3>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Item</th>
+          <th scope="col">Price</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Remove Order</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each order}}
+        <tr>
+          <td>{{this.email}}</td>
+          <td>{{this.prodName}}</td>
+          <td>${{this.price}}</td>
+          <td>{{this.amount}} Grams</td>
+          <td><button type="button" class="btn btn-primary order-remove" value={{this.id}}>Remove Order</button></td>
 
         </tr>
         {{/each}}

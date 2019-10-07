@@ -46,7 +46,6 @@ module.exports = function(app) {
   });
   // Delete a product by id
   app.delete("/api/products/remove/:id", function(req, res) {
-    console.log(req.params);
     db.Product.destroy({ where: { id: req.params.id } }).then(function(results) {
       res.json(results);
     });
@@ -92,7 +91,7 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-  // ======================== Checkout API Routes ========================
+  // ======================== Current Orders API Routes ========================
   // See All Orders
   app.get("/api/orders", function(req, res) {
     db.Order.findAll({}).then(function(results) {
@@ -105,4 +104,10 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+  // Delete Order
+  app.delete("/api/orders/:id", function(req, res) {
+    db.Order.destroy({ where: { id: req.params.id } }).then(function(results) {
+      res.json(results);
+    })
+  })
 };
