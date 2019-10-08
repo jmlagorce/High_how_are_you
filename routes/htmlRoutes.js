@@ -70,12 +70,13 @@ module.exports = function(app) {
       }
     );
   });
+  
+   app.get("/blog", function(req, res) {
+    res.render("blog");
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
-  // Renders blog page
-  app.get("/blog", function(req, res) {
-    res.render("blog");
-  });
+ 
 };
