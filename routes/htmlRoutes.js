@@ -32,13 +32,13 @@ module.exports = function(app) {
   });
   // Filter by name
   app.get("/product/name/:name", function(req, res) {
-    db.Product.findAll({
-      where: {
-        name: req.params.name
-      }
-    }).then(function(results) {
-      res.render("search");
-    });
+    console.log(req.params.name);
+    const all_products_name = db.Product.findAll({ where: { name: req.params.name}})
+    const checkout = db.Purchase.findAll({});
+    Promise.all([all_products_name, checkout]).then(responses => {
+      console.log(responses[0]);
+      res.render("search", {strain_card: responses[0], order: responses[1]});
+    })
   });
   // Loads checkout page
   app.get("/checkout", function(req, res) {
