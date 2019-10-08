@@ -1,7 +1,7 @@
-<div class="checkout">
+<div class="container-checkout">
   <h3 class="table-name">Checkout</h3>
-  <table class="table table-dark">
-    <thead>
+  <table class="table table-light table-borderless">
+    <thead class='thead-dark'>
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Quantity</th>
@@ -23,16 +23,11 @@
   </table>
 
   <div class="total">
-    <p>Total:${{total}} </p>
+    <p><b>Total: ${{total}} </b></p>
   </div>
-  <label for="emailAddress">Email</label><br />
+  <label for="emailAddress"><b>Email</b></label>
   <input id="emailAddress" type="email" placeholder="user@example.gov" list="defaultEmails" size="64" maxlength="256"
     multiple>
+  <button type="button" class="btn btn-primary checkout-btn">Proceed</button>
 
-  <div class="total">
-    <p>Total:$ </p>
-
-  </div>
-
-  <button type="button" class="btn btn-primary checkout-btn">Checkout</button>
 </div>
