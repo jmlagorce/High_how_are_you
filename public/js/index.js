@@ -214,7 +214,6 @@ $(".add-product-btn").on("click", function() {
 });
 // Pull Description From API
 $(".descript-btn").on("click", function() {
-  console.log("Clicked");
   var identifier = this.value;
   const apikey = "I8SKiAB";
   var strainId = this.name;
@@ -224,8 +223,12 @@ $(".descript-btn").on("click", function() {
       "/strains/data/desc/" +
       strainId,
     function(response) {
-      console.log(response);
       $(`#${identifier}`).text(response.desc);
     }
   );
 });
+// Search by Product Name
+$(".search-btn").on("click", function() {
+  var searchName = $("#search-input").val().trim();
+  location.replace("/product/name/" + searchName);
+})
