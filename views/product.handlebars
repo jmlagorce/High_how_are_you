@@ -2,24 +2,12 @@
 
 <ul>
   {{#each product}}
-    <li>
-      <p>
-        {{this.id}}. {{this.product}}
+  <li>
+    <p>
+      {{this.id}}. {{this.product}}
 
-        <button data-productid="{{this.id}}" class="product"></button>
-      </p>
-    </li>
+      <button data-productid="{{this.id}}" class="product"></button>
+    </p>
+  </li>
   {{/each}}
 </ul>
-
-
-{{!-- pagination --}}
-{{!-- <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul> --}}
