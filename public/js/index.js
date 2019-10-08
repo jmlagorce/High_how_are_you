@@ -73,7 +73,6 @@ $(".remove").on("click", function(event) {
 $(".order-remove").on("click", function(event) {
   event.preventDefault();
   var removedOrder = this.value;
-  console.log(removedOrder);
   $.ajax("api/orders/" + removedOrder, {
     method: "DELETE"
   }).then(function() {
@@ -111,7 +110,6 @@ $(".new-submit").on("click", function(event) {
       type: "POST",
       data: newStrain
     }).then(function() {
-      console.log("added new strain");
       location.reload(true);
     });
   }
@@ -134,7 +132,7 @@ $(".update-submit").on("click", function(event) {
       type: "PUT",
       data: updateStrain
     }).then(function() {
-      console.log("Updated Stain");
+      location.reload(true);
     });
   }
 });
@@ -181,7 +179,6 @@ $(".checkout-btn").on("click", function() {
       $.ajax("/api/checkout/all", {
         method: "DELETE"
       }).then(function() {
-        console.log("Removed All");
         $(location).attr("href", "/");
       });
     });
@@ -203,7 +200,6 @@ $(".add-product-btn").on("click", function() {
       amount: amount,
       total: Number(amount) * Number(result.price)
     };
-    console.log(newItem);
     $.ajax("/api/checkout", {
       method: "POST",
       data: newItem
