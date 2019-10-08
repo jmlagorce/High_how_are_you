@@ -1,13 +1,11 @@
-html {
-  background-color: #f5f5f5;
+/* html {
   font-family: "Montserrat", sans-serif;
   height: 100%;
-}
+} */
 
 body {
   min-height: 100%;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  background-color: #eeeeee;
 }
 
 .list-group-item {
@@ -51,8 +49,32 @@ input.btn.btn-primary.add-product-btn.login-btn {
   margin: 3px;
 }
 
+.container-admin {
+  background-color: #f5f5f5;
+}
 .admin-tables {
   background-color: #f5f5f5;
+  margin: 10% 5% 10% 5%;
+  padding: 20px;
+}
+.orders {
+  /* background-color: pink; */
+  padding: 20px;
+}
+.add-stock {
+  /* background-color: pink; */
+  padding: 20px;
+  width: 48%;
+  float: left;
+  margin-right: 1px;
+}
+
+.add-product {
+  /* background-color: pink; */
+  padding: 20px;
+  width: 48%;
+  float: right;
+  margin-left: 1px;
 }
 /* .admin-tables {
   border: black 2px solid;
@@ -114,15 +136,18 @@ input.btn.btn-primary.add-product-btn.login-btn {
 
 /* Checkout CSS */
 
-.checkout {
+div.checkout {
+  padding: 5%;
   border: #bdbdbd 0.5px solid;
   background-color: white;
-  height: 500px;
+  height: auto;
   width: 80%;
-  position: absolute;
+  position: relative;
+  /* margin-bottom: 10%; */
   top: 20%;
-  right: 10%;
-  padding: 15px;
+  left: 10%;
+  /* right: 10%; */
+  /* padding: 15px; */
 }
 
 h4.table-name {
@@ -152,7 +177,7 @@ button.btn.btn-primary.checkout-btn {
   font-size: 10px;
   text-align: center;
   position: relative;
-  left: 85%;
+  left: 0px;
   top: 200px;
 }
 

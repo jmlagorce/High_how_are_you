@@ -20,6 +20,7 @@ CREATE TABLE products
     (100) NULL,
     price DECIMAL
     (10, 2) NULL,
+    strainId INT NULL,
     createdAt TIMESTAMP NULL, 
     updatedAt TIMESTAMP NULL,
     PRIMARY KEY
