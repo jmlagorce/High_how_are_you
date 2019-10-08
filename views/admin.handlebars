@@ -11,52 +11,31 @@
     <input type="reset" value="Cancel" class="btn btn-primary add-product-btn login-btn" />
   </form>
 </div>
-
-
 {{!-- On submission of admin info, div with tables will show --}}
 
 
 <div class="admin-tables">
-  {{!-- Add stock table --}}
-  <div class="add-stock">
-    <h3 class="table-name">Add Stock</h3>
-    <form>
-      <br>
-      <div class="form-group">
-        <label for="product_id">Product ID</label>
-        <input type="input" class="form-control" id="product_id" placeholder="">
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="amount">Quantity #</label>
-        <input type="input" class="form-control" id="amount" placeholder="">
-      </div>
-      <br>
-      <button type="button" class="btn btn-primary add-quantity-btn update-submit">Add</button>
-    </form>
-
-  </div>
-  {{!-- Add stock table ends --}}
-
-  {{!-- Shows product under 28(Grams)/ low stock table --}}
-  <div class="low-stock">
-    <h3 class="table-name">Low Inventory</h3>
+  {{!-- orders table start --}}
+  <div class="orders">
+    <h3 class="table-name">Current Orders</h3>
     <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col">ID #</th>
-          <th scope="col">Name</th>
-          <th scope="col">Stock</th>
-
+          <th scope="col">Email</th>
+          <th scope="col">Item</th>
+          <th scope="col">Price</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Remove Order</th>
         </tr>
       </thead>
       <tbody>
-        {{#each lowstrain}}
+        {{#each order}}
         <tr>
-          <td>{{this.id}}</td>
-          <td>{{this.name}}</td>
-          <td>{{this.stock}}</td>
-
+          <td>{{this.email}}</td>
+          <td>{{this.prodName}}</td>
+          <td>${{this.price}}</td>
+          <td>{{this.amount}} Grams</td>
+          <td><button type="button" class="btn btn-primary order-remove" value={{this.id}}>Remove Order</button></td>
 
         </tr>
         {{/each}}
@@ -64,55 +43,8 @@
     </table>
 
   </div>
-  {{!-- End of low stock table --}}
 
-  {{!-- Add product table --}}
-  <div class="add-product">
-
-    <h3 class="table-name">Add Product</h3>
-    <form>
-      <br>
-      <div class="form-group">
-        <label for="new_name">Name</label>
-        <br>
-        <input type="input" class="form-control input" id="new_name" placeholder="">
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="new_race">Type</label>
-        <br>
-        <input type="input" class="form-control input" id="new_race" placeholder="">
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="new_mood">Mood</label>
-        <br>
-        <input type="input" class="form-control input" id="new_mood" placeholder="">
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="new_stock">Stock</label>
-        <br>
-        <input type="input" class="form-control input" id="new_stock" placeholder="">
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="new_price">Price</label>
-        <br>
-        <input type="input" class="form-control input" id="new_price" placeholder="">
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="new_id">Strain Id</label>
-        <br>
-        <input type="input" class="form-control input" id="new_id" placeholder="">
-      </div>
-      <br>
-      <button type="submit" class="btn btn-primary add-product-btn new-submit">Add</button>
-    </form>
-
-  </div>
-  {{!-- End of Add product table --}}
+  {{!-- orders tabls ends --}}
 
   {{!-- Inventory table --}}
   <div class="inventory">
@@ -144,38 +76,110 @@
         {{/each}}
       </tbody>
     </table>
+    {{!-- End of inventory table --}}
 
-    <div class="orders">
-    <h3 class="table-name">Current Orders</h3>
-    <table class="table table-dark">
-      <thead>
-        <tr>
-          <th scope="col">Email</th>
-          <th scope="col">Item</th>
-          <th scope="col">Price</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Remove Order</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each order}}
-        <tr>
-          <td>{{this.email}}</td>
-          <td>{{this.prodName}}</td>
-          <td>${{this.price}}</td>
-          <td>{{this.amount}} Grams</td>
-          <td><button type="button" class="btn btn-primary order-remove" value={{this.id}}>Remove Order</button></td>
 
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+
+    {{!-- Shows product under 28(Grams)/ low stock table --}}
+    <div class="low-stock">
+      <h3 class="table-name">Low Inventory</h3>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Stock</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each lowstrain}}
+          <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.stock}}</td>
+
+
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+    </div>
+    {{!-- End of low stock table --}}
+
+    {{!-- Add stock table --}}
+    <div class="add-stock">
+      <h3 class="table-name">Add Stock</h3>
+      <form>
+        <br>
+        <div class="form-group">
+          <label for="product_id">Product ID</label>
+          <input type="input" class="form-control" id="product_id" placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="amount">Quantity #</label>
+          <input type="input" class="form-control" id="amount" placeholder="">
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary add-quantity-btn update-submit">Add</button>
+      </form>
+
+    </div>
+    {{!-- Add stock table ends --}}
+
+    {{!-- Add product table --}}
+    <div class="add-product">
+
+      <h3 class="table-name">Add Product</h3>
+      <form>
+        <br>
+        <div class="form-group">
+          <label for="new_name">Name</label>
+          <br>
+          <input type="input" class="form-control input" id="new_name" placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="new_race">Type</label>
+          <br>
+          <input type="input" class="form-control input" id="new_race" placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="new_mood">Mood</label>
+          <br>
+          <input type="input" class="form-control input" id="new_mood" placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="new_stock">Stock</label>
+          <br>
+          <input type="input" class="form-control input" id="new_stock" placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="new_price">Price</label>
+          <br>
+          <input type="input" class="form-control input" id="new_price" placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="new_id">Strain Id</label>
+          <br>
+          <input type="input" class="form-control input" id="new_id" placeholder="">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary add-product-btn new-submit">Add</button>
+      </form>
+
+    </div>
+    {{!-- End of Add product table --}}
+
+
+
 
   </div>
-
-  {{!-- End of inventory table --}}
-
-
-
 
 </div>
