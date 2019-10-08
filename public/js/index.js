@@ -182,9 +182,9 @@ $(".checkout-btn").on("click", function() {
         method: "DELETE"
       }).then(function() {
         console.log("Removed All");
+        $(location).attr("href", "/");
       });
     });
-    $(location).attr("href", "/");
   }
 });
 
