@@ -201,11 +201,20 @@ small.age {
 }
 
 /* product */
+
+.content-products {
+  float: left;
+  width: 70%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
 div.card.strain-card {
   float: left;
   box-shadow: 5px 10px 18px gray;
   padding: 20px;
-  margin: 40px 40px 40px 40px;
+  margin: 25px;
+  width: 27%;
+  font-size: 14px;
 }
 
 .product-img {
@@ -214,22 +223,21 @@ div.card.strain-card {
 }
 
 div.cart {
-  width: 200px;
-  height: 500px;
-
-  float: right;
+  padding: 10px;
+  width: 230px;
+  height: auto;
   margin: 30px 20px 10px 10px;
-  background-color: darkgrey;
-  color: white;
-  text-align: center;
-
+  background-color: #f5f5f5;
+  color: black;
+  text-align: left;
   position: sticky;
-  top: 0;
 }
-
-.content-products {
-  height: 1000px;
-  width: auto;
+div.container-cart {
+  float: right;
+  position: sticky;
+  width: 20%;
+  margin-right: 5%;
+  margin-left: 0;
 }
 
 p,
@@ -239,17 +247,20 @@ h4 {
 
 /* Type dropdown and search bar CSS */
 .search-type {
-  width: 900px;
-  height: 40px;
-  float: left;
-
-  margin: 30px 0px 0px 70px;
+  position: relative;
+  left: 10%;
+  width: 80%;
+  height: 30px;
+  margin-top: 15px;
 }
 
 .dropdown {
   float: left;
 }
 
+hr {
+  width: 90%;
+}
 .carousel {
   border: black 2px solid;
   width: 80%;
@@ -257,15 +268,20 @@ h4 {
 }
 
 input#search-input.search-bar {
-  position: static;
-  width: 300px;
+  /* position: static; */
+  width: 20%;
   float: right;
+  margin-left: 10px;
 }
 
 .search-btn {
   float: right;
+  margin-left: 5px;
 }
-
+button.btn.btn-primary.search-btn.btn-sm {
+  background-color: #aed581;
+  border-color: #aed581;
+}
 div.banner {
   background-image: url("https://420mmjbudshop.com/wp-content/uploads/2019/08/Marijuana-banner.png");
   height: 250px;
@@ -322,11 +338,10 @@ p.welcome {
 }
 
 .headline-blog {
-text-align: center;
-padding: 30px;
-font-family: 'Roboto Slab', serif;
-font-weight: bold;
-
+  text-align: center;
+  padding: 30px;
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
 }
 
 #legal-map {
@@ -334,12 +349,11 @@ font-weight: bold;
   height: 650px;
   position: relative;
   padding: 20px;
-  
+
   left: 15%;
 }
 
-div.blog-post{
-  
+div.blog-post {
   height: auto;
   width: 80%;
   box-shadow: 5px 10px 16px gray;
@@ -347,6 +361,3 @@ div.blog-post{
   left: 10%;
   margin: 30px 0px 30px 0px;
 }
-
-
-

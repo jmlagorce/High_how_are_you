@@ -2,97 +2,103 @@
   <h2 class="page-title">Products</h2>
 </div>
 <div class="search-type">
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select Type
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/product/type/sativa">Sativa</a>
-    <a class="dropdown-item" href="/product/type/indica">Indica</a>
-    <a class="dropdown-item" href="/product/type/hybrid">Hybrid</a>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filter Type
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="/product/type/sativa">Sativa</a>
+      <a class="dropdown-item" href="/product/type/indica">Indica</a>
+      <a class="dropdown-item" href="/product/type/hybrid">Hybrid</a>
+    </div>
   </div>
-</div>
-<button type="search" class="btn btn-primary search-btn">Search</button>
-<input type="search" class="search-bar" id="search-input" placeholder="Search Strain Name....">
 
+  <button type="search" class="btn btn-primary search-btn btn-sm">Search</button>
+  <input type="search" class="search-bar" id="search-input" placeholder="Search Strain Name....">
+
+</div>
+
+<hr>
+
+<div class='container-cart'>
+  <div class="cart">
+    <h4>Shopping Cart</h4>
+    <hr>
+    {{#each order}}
+    <ol>
+      <b>Name:</b> {{this.name}}
+      <br>Quantity: {{this.amount}}
+      <br>Price: $ {{this.price}}
+    </ol>
+    {{/each}}
+
+  </div>
 </div>
 
 <div class="content-products">
-<div class="cart">
-<h4>Shopping Cart</h4>
+
+  {{#each strain_card}}
 
 
-<hr>
-{{#each order}}
-  <ul>
-    <li>Name: {{this.name}}</li>
-    <li>Quantity: {{this.amount}}</li>
-    <li>Price:$ {{this.price}}</li>
-  </ul>
-{{/each}}
+  <div class="card strain-card">
+    <img
+      src="https://www.laweekly.com/wp-content/uploads/2019/05/thc_design_s_cali-dad_og_is_sativa-dominant_and_tested_at_22-759x500.jpg"
+      class="card-img-top product-img" alt="...">
 
-</div>
+    <div class="card-body">
 
+      <ul>
+        <li><b>Name:</b> {{this.name}}</td>
+        <li><b>Type:</b> {{this.type}}</td>
+        <li><b>Mood: </b>{{this.mood}}</td>
+        <li><b>Price:</b> ${{this.price}} /Gram</td>
+        <li><button class="descript-btn" value="{{this.id}}" name="{{this.strainId}}">Description</button></li>
+        <span id={{this.id}}></span>{{description}}
 
+      </ul>
+      <br>
+      <div class="form-group">
+        <label for={{this.name}}>Select Quantity</label>
+        <select class="form-control" id="{{this.strainId}}">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
 
+        </select>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary add-product-btn submit" value="{{this.id}}"
+        name="{{this.strainId}}">Add to Cart</button>
 
- {{#each strain_card}}
- 
-<div class="card strain-card" style="width: 18rem;">
-  <img src="https://www.laweekly.com/wp-content/uploads/2019/05/thc_design_s_cali-dad_og_is_sativa-dominant_and_tested_at_22-759x500.jpg" class="card-img-top product-img" alt="...">
- 
-  <div class="card-body">
-      
-        <ul>
-          <li>Name: {{this.name}}</td>
-           <li>Type: {{this.type}}</td>
-           <li>Mood: {{this.mood}}</td>
-           <li>Price: ${{this.price}} Per Gram</td>
-           <li><button class="descript-btn" value="{{this.id}}" name="{{this.strainId}}">Description</button></li>
-           <li><span id={{this.id}}></span>{{description}}</li>
-
-        </ul>
-        <br>
-        <div class="form-group">
-    <label for={{this.name}}>Select Quantity</label>
-    <select class="form-control" id="{{this.strainId}}">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-        <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
-        <option>11</option>
-      <option>12</option>
-      <option>13</option>
-      <option>14</option>
-      <option>15</option>
-        <option>16</option>
-      <option>17</option>
-      <option>18</option>
-      <option>19</option>
-      <option>20</option>
-        <option>21</option>
-      <option>22</option>
-      <option>23</option>
-      <option>24</option>
-      <option>25</option>
-        <option>26</option>
-      <option>27</option>
-      <option>28</option>
-     
-    </select>
+    </div>
   </div>
-  <br>
-        <button type="submit" class="btn btn-primary add-product-btn submit" value="{{this.id}}" name="{{this.strainId}}">Add to Cart</button>
-    
-  </div>
-</div>
-{{/each}}
 
-</div>
 
+  {{/each}}
+</div>
