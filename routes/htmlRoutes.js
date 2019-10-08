@@ -70,7 +70,7 @@ module.exports = function(app) {
       }
     );
   });
-  // Renders blog page
+
   app.get("/blog", function(req, res) {
     res.render("blog");
   });

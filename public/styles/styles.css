@@ -312,3 +312,41 @@ p.welcome {
   height: 300px;
   overflow: auto;
 }
+
+/* blog css */
+.blog-card {
+  float: left;
+  box-shadow: 5px 10px 18px gray;
+  padding: 25px;
+  margin: 10px 45px 40px 45px;
+}
+
+.headline-blog {
+text-align: center;
+padding: 30px;
+font-family: 'Roboto Slab', serif;
+font-weight: bold;
+
+}
+
+#legal-map {
+  width: 70%;
+  height: 650px;
+  position: relative;
+  padding: 20px;
+  
+  left: 15%;
+}
+
+div.blog-post{
+  
+  height: auto;
+  width: 80%;
+  box-shadow: 5px 10px 16px gray;
+  position: relative;
+  left: 10%;
+  margin: 30px 0px 30px 0px;
+}
+
+
+
