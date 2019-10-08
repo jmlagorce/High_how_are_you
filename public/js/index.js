@@ -19,17 +19,16 @@ function check(form) {
   var userName = form.userid.value;
   var password = form.pswrd.value;
   if (userName == "admin" && password == "admin") {
-    M.toast({ html: "Success!", displayLength: "1000" });
     $(".login").hide();
     $(".container-admin").hide();
     $(".admin-tables").show();
     sessionStorage.setItem("username", userName);
     sessionStorage.setItem("password", password);
   } else {
-    M.toast({
-      html: "Invalid Username or Password. Try again!",
-      displayLength: "5000"
-    }); /*displays error message*/
+    // M.toast({
+    //   html: "Invalid Username or Password. Try again!",
+    //   displayLength: "5000"
+    // }); /*displays error message*/
   }
 }
 $(".submit-admin").on("click", function() {
@@ -59,11 +58,23 @@ jQuery(document).ready(function($) {
     location.replace("https://www.disney.com");
   });
 });
+// =============== Admin Page ===============
 // Remove Product
 $(".remove").on("click", function(event) {
   event.preventDefault();
   var removedItem = this.value;
   $.ajax("/api/products/remove/" + removedItem, {
+    method: "DELETE"
+  }).then(function() {
+    location.reload(true);
+  });
+});
+// Remove Order
+$(".order-remove").on("click", function(event) {
+  event.preventDefault();
+  var removedOrder = this.value;
+  console.log(removedOrder);
+  $.ajax("api/orders/" + removedOrder, {
     method: "DELETE"
   }).then(function() {
     location.reload(true);
@@ -91,20 +102,7 @@ $(".new-submit").on("click", function(event) {
       price: $("#new_price")
         .val()
         .trim(),
-
-      name: $("#new_name")
-        .val()
-        .trim(),
-      race: $("#new_race")
-        .val()
-        .trim(),
-      mood: $("#new_mood")
-        .val()
-        .trim(),
-      stock: $("#new_stock")
-        .val()
-        .trim(),
-      price: $("#new_price")
+      strainId: $("#new_id")
         .val()
         .trim()
     };
@@ -114,7 +112,7 @@ $(".new-submit").on("click", function(event) {
       data: newStrain
     }).then(function() {
       console.log("added new strain");
-      // location.reload(true);
+      location.reload(true);
     });
   }
 });
@@ -142,49 +140,52 @@ $(".update-submit").on("click", function(event) {
 });
 // =============== Checkout Page ===============
 $(".checkout-btn").on("click", function() {
-  var email = $("#emailAddress").val().trim();
-  var custName;
-  var phone;
-  $(".checkout").hide();
-  alert("Thank You Come Again");
-  $(".thanks").show();
-  $.ajax("/api/checkout", {
-    type: "GET"
-  }).then(function(result) {
-    for(i = 0; i < result.length; i++) {
+  if ($("#emailAddress").val().length === 0) {
+    alert("Please enter your email address!");
+  } else {
+    var email = $("#emailAddress")
+      .val()
+      .trim();
+    var custName;
+    var phone;
+    $(".checkout").hide();
+    alert("Thank You Come Again");
+    $(".thanks").show();
+    $.ajax("/api/checkout", {
+      type: "GET"
+    }).then(function(result) {
+      for (i = 0; i < result.length; i++) {
+        delete result[i].id;
+        delete result[i].createdAt;
+        delete result[i].updatedAt;
+        result[i].custName = custName;
+        result[i].phone = phone;
+        result[i].email = email;
 
-      delete result[i].id;
-      delete result[i].createdAt;
-      delete result[i].updatedAt;
-      result[i].custName = custName;
-      result[i].phone = phone;
-      result[i].email = email;
+        var newOrder = {
+          custName: result[i].custName,
+          prodName: result[i].name,
+          price: result[i].price,
+          amount: result[i].amount,
+          phone: result[i].phone,
+          email: result[i].email
+        };
 
-      var newOrder = {
-        custName: result[i].custName,
-        prodName: result[i].name,
-        price: result[i].price,
-        amount: result[i].amount,
-        phone: result[i].phone,
-        email: result[i].email
-      };
-
-      $.ajax("/api/orders", {
-        method: "POST",
-        data: newOrder
+        $.ajax("/api/orders", {
+          method: "POST",
+          data: newOrder
+        }).then(function() {
+          console.log("Added " + newOrder.prodName + " to orders.");
+        });
+      }
+      $.ajax("/api/checkout/all", {
+        method: "DELETE"
       }).then(function() {
-        console.log("Added " + newOrder.prodName + " to orders.");
+        console.log("Removed All");
       });
-
-    };
-    $.ajax("/api/checkout/all", {
-      method: "DELETE"
-    }).then(function() {
-      console.log("Removed All");
     });
-  });
-  $(location).attr("href", "/");
-
+    $(location).attr("href", "/");
+  }
 });
 
 // =============== Product Page ===============
@@ -192,14 +193,15 @@ $(".checkout-btn").on("click", function() {
 $(".add-product-btn").on("click", function() {
   var id = this.value;
   var amount = $(`#${this.name}`).val();
-  
+
   $.ajax("/api/products/id/" + id, {
-    type: "GET",
+    type: "GET"
   }).then(function(result) {
     var newItem = {
       name: result.name,
       price: result.price,
-      amount: amount
+      amount: amount,
+      total: Number(amount) * Number(result.price)
     };
     console.log(newItem);
     $.ajax("/api/checkout", {
@@ -212,11 +214,21 @@ $(".add-product-btn").on("click", function() {
 });
 // Pull Description From API
 $(".descript-btn").on("click", function() {
-  var identifier = this.name + "_" + this.value;
+  var identifier = this.value;
   const apikey = "I8SKiAB";
-  var name = 1437;
-  $.get("/api/products/description", function(response) {
-    console.log(response);
-  });
+  var strainId = this.name;
+  $.get(
+    "https://strainapi.evanbusse.com/" +
+      apikey +
+      "/strains/data/desc/" +
+      strainId,
+    function(response) {
+      $(`#${identifier}`).text(response.desc);
+    }
+  );
+});
+// Search by Product Name
+$(".search-btn").on("click", function() {
+  var searchName = $("#search-input").val().trim();
+  location.replace("/product/name/" + searchName);
 })
-

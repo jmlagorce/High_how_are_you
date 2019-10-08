@@ -10,25 +10,33 @@ module.exports = function(app) {
   });
   // By Id
   app.get("/api/products/id/:id", function(req, res) {
-    db.Product.findOne({where: {id: req.params.id} }).then(function(results) {
+    db.Product.findOne({ where: { id: req.params.id } }).then(function(
+      results
+    ) {
       res.json(results);
     });
   });
   // By Name
-  app.get('/api/products/name/:name', function(req, res) {
-    db.Product.findOne({where: {name: req.params.name} }).then(function(results) {
+  app.get("/api/products/name/:name", function(req, res) {
+    db.Product.findOne({ where: { name: req.params.name } }).then(function(
+      results
+    ) {
       res.json(results);
     });
   });
   // Get By Mood
-  app.get('/api/products/mood/:mood', function(req, res) {
-    db.Product.findAll({where: {mood: req.params.mood} }).then(function(results) {
+  app.get("/api/products/mood/:mood", function(req, res) {
+    db.Product.findAll({ where: { mood: req.params.mood } }).then(function(
+      results
+    ) {
       res.json(results);
     });
   });
   // Get By Race
-  app.get('/api/products/type/:type', function(req, res) {
-    db.Product.findAll({where: {type: req.params.type}}).then(function(results) {
+  app.get("/api/products/type/:type", function(req, res) {
+    db.Product.findAll({ where: { type: req.params.type } }).then(function(
+      results
+    ) {
       res.json(results);
     });
   });
@@ -40,27 +48,33 @@ module.exports = function(app) {
   });
   // Update product inventory
   app.put("/api/products/update/:id", function(req, res) {
-    db.Product.update({stock: req.body.stock}, {where: {id: req.params.id} }).then(function(results) {
+    db.Product.update(
+      { stock: req.body.stock },
+      { where: { id: req.params.id } }
+    ).then(function(results) {
       res.json(results);
     });
   });
   // Delete a product by id
   app.delete("/api/products/remove/:id", function(req, res) {
-    console.log(req.params);
-    db.Product.destroy({ where: { id: req.params.id } }).then(function(results) {
+    db.Product.destroy({ where: { id: req.params.id } }).then(function(
+      results
+    ) {
       res.json(results);
     });
   });
   // ======================== User API routes ========================
   //Pull user by name
-  app.get('/api/users/:username', function(req, res) {
-    db.User.findOne({ where: { userName: req.params.username }}).then(function(results) {
+  app.get("/api/users/:username", function(req, res) {
+    db.User.findOne({ where: { userName: req.params.username } }).then(function(
+      results
+    ) {
       res.json(results);
     });
   });
   //Pull all users for user name compairison
-  app.get('/api/users', function(req, res) {
-    db.User.findAll({attributes: ['userName']}).then(function(results) {
+  app.get("/api/users", function(req, res) {
+    db.User.findAll({ attributes: ["userName"] }).then(function(results) {
       res.json(results);
     });
   });
@@ -92,7 +106,7 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-  // ======================== Checkout API Routes ========================
+  // ======================== Current Orders API Routes ========================
   // See All Orders
   app.get("/api/orders", function(req, res) {
     db.Order.findAll({}).then(function(results) {
@@ -105,10 +119,10 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-  // Outside Call
-  app.get("/api/products/description", function(req, res) {
-    $.get("strainapi.evanbusse.com/I8SKiAB/strains/data/desc/1437", function(response) {
-      res.json(response);
+  // Delete Order
+  app.delete("/api/orders/:id", function(req, res) {
+    db.Order.destroy({ where: { id: req.params.id } }).then(function(results) {
+      res.json(results);
     });
   });
 };
